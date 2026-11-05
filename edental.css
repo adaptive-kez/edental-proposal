@@ -18,6 +18,9 @@
 .edental .offer-card p{font:400 15px/1.5 Golos,Arial,sans-serif;color:#656565;margin-top:18px;max-width:490px}
 .edental .offer-card.is-selected p{color:#b7b7b7}
 .edental .offer-card .offer-price{font:500 clamp(32px,3.6vw,54px)/1.15 Golos,Arial,sans-serif;letter-spacing:-.045em;display:block;margin-top:28px;white-space:nowrap}
+.edental .offer-card .offer-duration{margin-top:14px;font-size:14px;color:inherit}
+.edental .offer-duration strong{font-weight:500;white-space:nowrap}
+.edental .package-timing-note{margin-bottom:28px}
 .edental .offer-card ul{padding-left:19px;margin:24px 0 32px;font:400 15px/1.6 Golos,Arial,sans-serif}
 .edental .offer-card button{background:transparent;color:inherit;border:1px solid #aaa;border-radius:100px;padding:14px 24px;font:500 14px/1.3 Golos,Arial,sans-serif;cursor:pointer;margin-top:auto}
 .edental .offer-card.is-selected button{border-color:#777}
