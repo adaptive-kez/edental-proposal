@@ -48,6 +48,8 @@
 .edental .config-summary dd{white-space:nowrap;margin:0}
 .edental .config-summary .config-total{font:500 34px/1.2 Golos,Arial,sans-serif;letter-spacing:-.04em;display:block;margin-top:22px;white-space:nowrap}
 .edental .config-summary .summary-note{font:400 12px/1.5 Golos,Arial,sans-serif;color:#aaa;margin-top:18px}
+.edental .identity-summary-items{list-style:none;margin:24px 0 0;padding:0;border-top:1px solid #393939;font:400 13px/1.5 Golos,Arial,sans-serif;color:#bbb}
+.edental .identity-summary-items li{padding:12px 0;border-bottom:1px solid #393939}
 .edental .config-controls{display:flex;flex-wrap:wrap;gap:24px;margin:24px 0}
 .edental .config-controls button{font:500 13px/1.4 Golos,Arial,sans-serif;color:#555;background:none;border:0;border-bottom:1px solid #999;padding:4px 0;cursor:pointer}
 .edental .config-note{font:400 13px/1.55 Golos,Arial,sans-serif;color:#666;margin-top:18px;max-width:850px}
