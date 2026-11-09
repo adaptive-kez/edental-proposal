@@ -71,7 +71,13 @@ function ganttUrl(websiteSelection, identityPremium = false, quantities = {}, id
   return 'gantt.html?' + params.toString();
 }
 function selectionText(websiteSelection, identitySelection, websitePremium, identityPremium) {
-  const lines = ['Эденталь × AffArts', '', 'Сайт: ' + priceRange(websiteSelection.totalCents, websiteSelection.maxCents), 'Пакет: ' + (websitePremium ? 'Расширенный' : 'Базовый'), 'Ориентировочный срок: ' + weekRange(websiteSelection.minWeeks, websiteSelection.maxWeeks)];
+  const lines = ['Эденталь × AffArts', '', 'Айдентика: ' + rubles(identitySelection.totalCents), 'Пакет: ' + (identityPremium ? 'Расширенный' : 'Базовый'), 'Ориентир для исходного состава пакета: ' + (identityPremium ? '4 рабочие недели.' : '3 рабочие недели.') + ' При изменении количества макетов плановые сроки требуют сверки.', '• Константы фирменного стиля: ' + rubles(identitySelection.coreCents)];
+  for (const [group, name] of [['carriers', 'Носители'], ['brandbook', 'Брендбук'], ['templates', 'Редактируемые шаблоны'], ['merch', 'Корпоративный мерч']]) {
+    const rows = identitySelection.items.filter(item => item.group === group && item.quantity > 0);
+    if (rows.length) lines.push(name + ':', ...rows.map(item => '• ' + item.name + ': ' + item.quantity + ' × ' + rubles(item.unitCents) + ' = ' + rubles(item.subtotalCents)));
+  }
+  if (identitySelection.animationCents) lines.push('• Анимация логотипа (MP4 16:9 и 9:16, исходник After Effects): ' + rubles(identitySelection.animationCents));
+  lines.push('', 'Сайт: ' + priceRange(websiteSelection.totalCents, websiteSelection.maxCents), 'Пакет: ' + (websitePremium ? 'Расширенный' : 'Базовый'), 'Ориентировочный срок: ' + weekRange(websiteSelection.minWeeks, websiteSelection.maxWeeks));
   for (const stage of websiteSelection.stages) {
     const items = websiteSelection.items.filter(item => item.stage === stage.optionStage);
     const fees = websiteSelection.fees.filter(item => item.stage === stage.optionStage);
@@ -83,12 +89,6 @@ function selectionText(websiteSelection, identitySelection, websitePremium, iden
     else lines.push(...items.map(item => '• ' + item.name + ': ' + priceRange(item.priceCents, item.maxCents)), ...fees.map(item => '• ' + item.name + ': ' + priceRange(item.priceCents, item.maxCents)));
   }
   if (pricing.website.launch) lines.push('• Запуск сайта: ' + (websiteSelection.launchCents ? rubles(websiteSelection.launchCents) : 'в составе базового этапа MVP'), '• После завершения работ: гарантия ' + pricing.website.launch.warrantyMonths + ' месяцев; техническая и информационная поддержка — ' + pricing.website.launch.supportMonths + ' месяца.');
-  lines.push('', 'Айдентика: ' + rubles(identitySelection.totalCents), 'Пакет: ' + (identityPremium ? 'Расширенный' : 'Базовый'), 'Ориентир для исходного состава пакета: ' + (identityPremium ? '4 рабочие недели.' : '3 рабочие недели.') + ' При изменении количества макетов плановые сроки требуют сверки.', '• Константы фирменного стиля: ' + rubles(identitySelection.coreCents));
-  for (const [group, name] of [['carriers', 'Носители'], ['brandbook', 'Брендбук'], ['templates', 'Редактируемые шаблоны'], ['merch', 'Корпоративный мерч']]) {
-    const rows = identitySelection.items.filter(item => item.group === group && item.quantity > 0);
-    if (rows.length) lines.push(name + ':', ...rows.map(item => '• ' + item.name + ': ' + item.quantity + ' × ' + rubles(item.unitCents) + ' = ' + rubles(item.subtotalCents)));
-  }
-  if (identitySelection.animationCents) lines.push('• Анимация логотипа (MP4 16:9 и 9:16, исходник After Effects): ' + rubles(identitySelection.animationCents));
   lines.push('', 'Итого: ' + priceRange(websiteSelection.totalCents + identitySelection.totalCents, websiteSelection.maxCents + identitySelection.totalCents));
   const quantities = Object.fromEntries(identitySelection.items.filter(item => item.group === 'carriers' || item.group === 'merch').map(item => [item.group + ':' + item.id, item.quantity]));
   lines.push('', 'Сроки сайта указаны в рабочих неделях по 5 рабочих дней; календарные даты учитывают выходные и праздники и приведены в графике работ и оплат.', 'Предварительная дата старта работ: 16.11.2026. Айдентика начинается первой; сайт — параллельно работе над брендбуком.', 'Оплата айдентики: каждый этап — 50/50: 50% в день старта, до начала работ; 50% по завершении, в день окончания этапа. Первый платёж — в день старта, до начала работ.', 'Оплата сайта: дизайн и разработка внутри каждого выбранного этапа оплачиваются отдельно по схеме 50/50: 50% в день старта подэтапа, до начала работ; 50% по завершении, в день его окончания.', 'График работ и оплат: https://adaptive-kez.github.io/edental-proposal/' + ganttUrl(websiteSelection, identityPremium, quantities, identitySelection.featureIds));
@@ -104,7 +104,7 @@ if (typeof document !== 'undefined') {
   const identityMode = () => state.identityPremium ? 'premium' : 'basic';
   let websiteSelection, identitySelection;
   function updateStrip() {
-    document.querySelector('.selection-strip').hidden = document.querySelector('#website').getBoundingClientRect().top >= innerHeight / 2;
+    document.querySelector('.selection-strip').hidden = document.querySelector('#identity').getBoundingClientRect().top >= innerHeight / 2;
   }
   function update() {
     websiteSelection = websiteTotal(state.websitePremium ? ids('website') : []);
@@ -139,8 +139,8 @@ if (typeof document !== 'undefined') {
         button.disabled = Number(button.dataset.quantityStep) < 0 ? current === 0 : current >= (item.maxQuantity ?? 99);
       });
     }
-    document.querySelector('#configuration-status').textContent = 'Сайт: ' + priceRange(websiteSelection.totalCents, websiteSelection.maxCents) + '. Айдентика: ' + rubles(identitySelection.totalCents) + '. Итого: ' + priceRange(websiteSelection.totalCents + identitySelection.totalCents, websiteSelection.maxCents + identitySelection.totalCents) + '.';
-    for (const type of ['website', 'identity']) {
+    document.querySelector('#configuration-status').textContent = 'Айдентика: ' + rubles(identitySelection.totalCents) + '. Сайт: ' + priceRange(websiteSelection.totalCents, websiteSelection.maxCents) + '. Итого: ' + priceRange(websiteSelection.totalCents + identitySelection.totalCents, websiteSelection.maxCents + identitySelection.totalCents) + '.';
+    for (const type of ['identity', 'website']) {
       const premium = state[type + 'Premium'];
       document.querySelector('#' + type + '-options').hidden = !premium;
       document.querySelectorAll('[data-mode-for="' + type + '"]').forEach(button => {
@@ -159,7 +159,7 @@ if (typeof document !== 'undefined') {
     state[button.dataset.modeFor + 'Premium'] = button.dataset.mode === 'premium';
     update();
   }));
-  inputs('website').concat(inputs('identity')).forEach(input => input.addEventListener('change', update));
+  inputs('identity').concat(inputs('website')).forEach(input => input.addEventListener('change', update));
   document.querySelectorAll('[data-select-options]').forEach(button => button.addEventListener('click', () => {
     inputs(button.dataset.selectOptions).forEach(input => { input.checked = button.dataset.value === 'all'; });
     update();
