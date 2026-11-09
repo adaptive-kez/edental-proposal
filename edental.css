@@ -132,6 +132,13 @@
 .edental #website .config-summary dd{white-space:normal;min-width:0}
 .edental .total-lines dd[data-price="website"]{white-space:normal;text-align:right;max-width:68%;min-width:0}
 .edental .website-stage-details{margin-top:38px}
+.edental .project-schedule{display:flex;justify-content:space-between;align-items:center;gap:28px;border-top:1px solid #c9c9c9;border-bottom:1px solid #c9c9c9;padding:25px 0;margin:28px 0}
+.edental .project-schedule>div{max-width:850px;min-width:0}
+.edental .project-schedule h3{font:600 20px/1.4 Golos,Arial,sans-serif}
+.edental .project-schedule p{font:400 14px/1.6 Golos,Arial,sans-serif;color:#646464;margin-top:12px}
+.edental .schedule-link{display:inline-block;flex-shrink:0;border:1px solid #999;border-radius:100px;padding:14px 20px;font:500 14px/1.4 Golos,Arial,sans-serif;color:inherit;text-align:center;text-decoration:none}
+.edental .schedule-link:hover{background:#e70204;border-color:#e70204;color:#fff}
+.edental .total-actions .schedule-link{border-color:#777;color:#fff}
 .edental .website-stage-details>h3{font:800 26px/1.25 Halvar,Arial,sans-serif}
 .edental .website-stage-detail{border-top:1px solid #c9c9c9;margin-top:22px}
 .edental .website-stage-detail:last-child{border-bottom:1px solid #c9c9c9}
@@ -153,4 +160,5 @@
 .edental .stage-deliverable>strong{font:500 16px/1.5 Golos,Arial,sans-serif;text-align:right}
 @media(max-width:650px){.edental .website-stage-details>h3{font-size:23px}.edental .website-stage-detail>summary{flex-direction:column;gap:15px;padding:22px 0}.edental .stage-meta{max-width:100%;text-align:left;padding-left:23px}.edental .stage-deliverable{grid-template-columns:1fr;gap:13px}.edental .stage-deliverable>strong{text-align:left}.edental #website .option-row{grid-template-columns:20px minmax(0,1fr)}.edental #website .option-price{text-align:left}.edental .config-summary .config-total.price-range{font-size:29px}.edental .selection-strip strong.price-range{font-size:18px}.edental .selection-strip>div{min-width:0}.edental .selection-strip a{flex-shrink:0;width:115px}}
 @media print{.edental .website-stage-detail>.stage-details-body{display:block!important}.edental .website-stage-detail>summary,.edental .stage-deliverable{break-inside:avoid}.edental .website-stage-detail{break-inside:auto}.edental .stage-deliverable{grid-template-columns:minmax(0,1fr) 220px}}
+@media(max-width:650px){.edental .project-schedule{flex-direction:column;align-items:flex-start;gap:20px}.edental .project-schedule .schedule-link{width:100%;box-sizing:border-box}.edental .total-actions .schedule-link{width:100%;box-sizing:border-box}}
 @media print{.edental .selection-strip,.edental .offer-card button,.edental .config-controls,.edental .total-actions{display:none!important}.edental .config-layout,.edental .total-layout{display:block}.edental .offer-cards{grid-template-columns:1fr 1fr}.edental .config-summary{position:static;margin:24px 0}.edental .option-row{break-inside:avoid}.edental .option-row:has(input:not(:checked)){display:none}.edental .identity-stage{break-inside:avoid}.edental .offer-card:not(.is-selected){display:none}.edental .offer-cards{display:block}.edental .offer-card{break-inside:avoid}.edental .combined-price{font-size:44px}.edental .footer{padding-bottom:24px}.edental .offer-section{break-before:page}}
