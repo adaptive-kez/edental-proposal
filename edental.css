@@ -132,6 +132,28 @@
 .edental #website .config-summary dd{white-space:normal;min-width:0}
 .edental .total-lines dd[data-price="website"]{white-space:normal;text-align:right;max-width:68%;min-width:0}
 .edental .website-stage-details{margin-top:38px}
+.edental .full-work-jump{display:inline-block;margin-top:10px;color:#131313;text-decoration:underline;text-underline-offset:4px}
+.edental .full-work-details{margin-top:48px;padding-top:32px;border-top:1px solid #c9c9c9;scroll-margin-top:24px}
+.edental .full-work-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.edental .full-work-head h3{font:800 26px/1.3 Halvar,Arial,sans-serif;max-width:800px}
+.edental .full-work-toggle{flex-shrink:0;background:transparent;color:inherit;border:1px solid #999;border-radius:100px;padding:13px 20px;font:500 13px/1.4 Golos,Arial,sans-serif;cursor:pointer}
+.edental .full-work-toggle:hover{background:#e70204;border-color:#e70204;color:#fff}
+.edental .full-work-intro{max-width:1000px;margin:22px 0 28px}
+.edental .full-work-intro p{font:400 14px/1.65 Golos,Arial,sans-serif;color:#646464;margin-top:12px}
+.edental .work-detail-group{border-top:1px solid #c9c9c9}
+.edental .work-detail-group:last-child{border-bottom:1px solid #c9c9c9}
+.edental .work-detail-group>summary{display:flex;justify-content:space-between;align-items:start;gap:24px;padding:24px 0 24px 24px;cursor:pointer;position:relative;list-style:none}
+.edental .work-detail-group>summary::-webkit-details-marker{display:none}
+.edental .work-detail-group>summary:before{content:'+';position:absolute;left:0;top:23px;font:500 22px/1.4 Golos,Arial,sans-serif}
+.edental .work-detail-group[open]>summary:before{content:'−'}
+.edental .work-detail-group>summary>strong{font:600 18px/1.45 Golos,Arial,sans-serif}
+.edental .work-detail-group>summary>span{font:400 13px/1.5 Golos,Arial,sans-serif;color:#646464;white-space:nowrap;padding-top:3px}
+.edental .full-work-group-body{padding-bottom:18px}
+.edental .full-work-item{border-top:1px solid #ddd;padding:24px 0;scroll-margin-top:24px}
+.edental .full-work-item h4{font:600 18px/1.45 Golos,Arial,sans-serif;max-width:1040px}
+.edental .full-work-item>p{font:400 15px/1.7 Golos,Arial,sans-serif;color:#5d5d5d;max-width:1100px;margin-top:14px}
+.edental .full-work-item>.work-applicability{font:400 12px/1.5 Golos,Arial,sans-serif;color:#737373;margin:0 0 9px}
+.edental .full-work-item>.work-result{color:#333}
 .edental .project-schedule{display:flex;justify-content:space-between;align-items:center;gap:28px;border-top:1px solid #c9c9c9;border-bottom:1px solid #c9c9c9;padding:25px 0;margin:28px 0}
 .edental .project-schedule>div{max-width:850px;min-width:0}
 .edental .project-schedule h3{font:600 20px/1.4 Golos,Arial,sans-serif}
@@ -161,4 +183,6 @@
 @media(max-width:650px){.edental .website-stage-details>h3{font-size:23px}.edental .website-stage-detail>summary{flex-direction:column;gap:15px;padding:22px 0}.edental .stage-meta{max-width:100%;text-align:left;padding-left:23px}.edental .stage-deliverable{grid-template-columns:1fr;gap:13px}.edental .stage-deliverable>strong{text-align:left}.edental #website .option-row{grid-template-columns:20px minmax(0,1fr)}.edental #website .option-price{text-align:left}.edental .config-summary .config-total.price-range{font-size:29px}.edental .selection-strip strong.price-range{font-size:18px}.edental .selection-strip>div{min-width:0}.edental .selection-strip a{flex-shrink:0;width:115px}}
 @media print{.edental .website-stage-detail>.stage-details-body{display:block!important}.edental .website-stage-detail>summary,.edental .stage-deliverable{break-inside:avoid}.edental .website-stage-detail{break-inside:auto}.edental .stage-deliverable{grid-template-columns:minmax(0,1fr) 220px}}
 @media(max-width:650px){.edental .project-schedule{flex-direction:column;align-items:flex-start;gap:20px}.edental .project-schedule .schedule-link{width:100%;box-sizing:border-box}.edental .total-actions .schedule-link{width:100%;box-sizing:border-box}}
+@media(max-width:650px){.edental .full-work-head{flex-direction:column;gap:18px}.edental .full-work-head h3{font-size:24px}.edental .full-work-toggle{width:100%;box-sizing:border-box}.edental .work-detail-group>summary{gap:16px;padding-top:21px;padding-bottom:21px}.edental .work-detail-group>summary>strong{font-size:16px}.edental .work-detail-group>summary>span{font-size:12px}.edental .work-detail-group>summary:before{top:20px}.edental .full-work-item h4{font-size:17px}.edental .full-work-item>p{font-size:14px}}
+@media print{.edental .full-work-toggle{display:none!important}.edental .work-detail-group>.full-work-group-body{display:block!important}.edental .work-detail-group>summary,.edental .full-work-item{break-inside:avoid}.edental .work-detail-group{break-inside:auto}}
 @media print{.edental .selection-strip,.edental .offer-card button,.edental .config-controls,.edental .total-actions{display:none!important}.edental .config-layout,.edental .total-layout{display:block}.edental .offer-cards{grid-template-columns:1fr 1fr}.edental .config-summary{position:static;margin:24px 0}.edental .option-row{break-inside:avoid}.edental .option-row:has(input:not(:checked)){display:none}.edental .identity-stage{break-inside:avoid}.edental .offer-card:not(.is-selected){display:none}.edental .offer-cards{display:block}.edental .offer-card{break-inside:avoid}.edental .combined-price{font-size:44px}.edental .footer{padding-bottom:24px}.edental .offer-section{break-before:page}}

@@ -65,16 +65,44 @@ summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;
 .metrics{max-width:820px;gap:8px;margin-bottom:18px}.metrics .metric{padding:10px 12px}.metrics .metric strong{font-size:19px;line-height:1.2}.metrics .metric small,.metrics .metric span{font-size:10px}.resource-row{display:grid;grid-template-columns:1.2fr 110px 160px 1.3fr;gap:14px;align-items:end;width:100%}.resource-row b{align-self:center}.resource-row input,.resource-row select{width:100%;box-sizing:border-box}#capacityFields{display:flex;flex-direction:column;gap:16px}.task-date-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.task-date-grid input{width:100%;box-sizing:border-box}.bar.movable{touch-action:none}.drag-ghost:after{content:attr(data-dates);position:absolute;bottom:calc(100% + 5px);left:0;white-space:nowrap;background:#254a35;color:white;padding:5px 8px;border-radius:5px;font-size:12px}#taskError:empty{display:none}@media(max-width:700px){.resource-row{grid-template-columns:1fr 1fr}.resource-row b{grid-column:1/-1}.task-date-grid{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}}
 
 /* Client phase view over the bundled gantt-pipeline visual system. */
-main{max-width:1680px;padding:0 32px 32px}.appbar{min-height:70px}.brand{font-size:22px}.back-link{font-size:12px;text-decoration:none;border:1px solid var(--line);padding:8px 13px;border-radius:8px;background:#fff}.hero{padding:28px 0 24px;align-items:flex-start}h1{font-size:34px}.subtitle{margin-top:10px;font-size:13px}.plan-note{font-size:11px;color:var(--muted);margin:7px 0 0}.hero-total{display:grid;text-align:right;gap:6px;padding-top:5px}.hero-total span{font-size:11px;color:var(--muted)}.hero-total strong{font-size:24px;font-weight:600;letter-spacing:-.6px;white-space:nowrap}.chart-section{border-radius:12px}.chart-intro{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:15px 18px;font-size:12px}.chart-intro span{font-size:11px;color:var(--muted)}.scroll{max-height:none;min-height:0;border-bottom:0;overflow:auto}.chart-content{position:relative;width:100%;min-width:1150px;isolation:isolate;--label-width:390px;--cw:3.1px}.gridrow{min-height:96px;height:96px}.gridrow .left{width:var(--label-width);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;padding:10px 18px;z-index:3}.phase .left strong{font-size:12px;font-weight:600;line-height:1.25}.phase-price{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.15px}.phase-dates{display:flex;gap:12px;flex-wrap:wrap;font-size:10px;color:var(--muted);line-height:1.3}.phase-dates span:last-child{color:#617366}.track,.axis{width:calc(100% - var(--label-width));flex-shrink:0}.track{min-height:96px;background-image:repeating-linear-gradient(90deg,transparent 0,transparent calc(100% / var(--weeks) - 1px),#edf1e9 calc(100% / var(--weeks) - 1px),#edf1e9 calc(100% / var(--weeks)));--weeks:38}.bar{height:26px;top:35px;min-width:3px;cursor:default;border-radius:5px;z-index:2}.bar:hover{filter:none;opacity:.94;box-shadow:inset 0 1px 0 #ffffff22,0 1px 2px #173a2512}.gridrow:hover>.track{background-color:transparent}.gridrow:hover>.left{background:#fff}.gridrow.group{min-height:38px;height:38px}.group .left{flex-direction:row;justify-content:space-between;align-items:center;padding:8px 18px;gap:10px}.group .left strong{font-size:12px}.group .left span{font-size:10px;padding:0;color:#50654f;white-space:nowrap}.group .track{min-height:38px;background-image:none;background-color:#f0f4ed}.head{height:66px;min-height:66px;position:relative;top:auto}.head .left{justify-content:center;font-size:10px;padding:0 18px;z-index:4}.head .left>b{padding:0;font-weight:500}.months{height:35px}.months>div{overflow:hidden;white-space:nowrap;text-transform:capitalize;font-size:10px;padding:9px 7px;flex-shrink:0}.weeks{height:31px;position:relative}.weeks span{position:absolute;font-size:8px;color:#8a9788;top:8px;padding-left:4px}.client-dependencies{position:absolute;top:0;left:0;pointer-events:none;z-index:1;overflow:visible}.client-dependencies .dependency{stroke:#9aa99e;stroke-width:1.2;opacity:.7}.chart-foot{display:flex;gap:20px;justify-content:space-between;margin:12px 2px 0;font-size:10px;color:var(--muted)}.chart-foot p{margin:0}.error{padding:20px;white-space:normal}.legend-dot{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:5px}.legend-dot.identity{background:#857899}.legend-dot.website{background:#36765e}
-@media(max-width:900px){main{padding:0 18px 24px}.hero{gap:16px}h1{font-size:29px}.hero-total strong{font-size:20px}.chart-content{--label-width:340px;min-width:1060px}.phase-dates{font-size:9px;gap:8px}.group .left span{font-size:9px}.chart-intro{padding:13px 15px}.chart-foot{font-size:9px}}
-@media(max-width:600px){main{padding:0 14px 24px}.appbar{min-height:62px;gap:12px}.brand{font-size:20px}.back-link{font-size:10px;padding:7px 10px}.hero{padding:22px 0;display:block}h1{font-size:29px}.subtitle{font-size:12px;margin-top:8px}.plan-note{font-size:10px}.hero-total{text-align:left;margin-top:17px;gap:4px}.hero-total strong{font-size:22px}.chart-content{--label-width:240px;min-width:950px}.gridrow .left{padding:9px 12px;gap:5px}.phase .left strong{font-size:11px}.phase-price{font-size:12px;line-height:1.25}.phase-dates{font-size:9px;gap:3px;flex-direction:column}.group .left{padding:8px 12px;gap:4px;align-items:flex-start;justify-content:center;flex-direction:column}.group .left strong{font-size:10px}.group .left span{font-size:8px}.head .left{padding-left:12px;font-size:9px}.chart-intro{display:block;font-size:11px}.chart-intro span{display:block;font-size:10px;margin-top:4px}.chart-foot{display:block;font-size:9px;line-height:1.5}.chart-foot p+p{margin-top:5px}}
+main{max-width:1680px;padding:0 32px 32px}
+.appbar{min-height:70px}.brand{font-size:22px}
+.back-link{font-size:12px;text-decoration:none;border:1px solid var(--line);padding:8px 13px;border-radius:8px;background:#fff}
+.hero{padding:28px 0 24px;align-items:flex-start}h1{font-size:34px}
+.subtitle{margin-top:10px;font-size:13px}.plan-note{font-size:11px;color:var(--muted);margin:7px 0 0;max-width:600px}
+.hero-total{display:grid;text-align:right;gap:6px;padding-top:5px}.hero-total span{font-size:11px;color:var(--muted)}.hero-total strong{font-size:24px;font-weight:600;letter-spacing:-.6px;white-space:nowrap}
+.chart-section{border-radius:12px}.chart-intro{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:15px 18px;font-size:12px}.chart-intro span{font-size:11px;color:var(--muted)}
+.advance-key,.final-key{font-style:normal}.advance-key{color:#ba7b2c}.final-key{color:#337a83}
+.scroll{max-height:none;min-height:0;border-bottom:0;overflow:auto}
+.chart-content{position:relative;width:100%;min-width:1150px;isolation:isolate;--label-width:390px}
+.gridrow{min-height:96px;height:96px}.gridrow .left{width:var(--label-width);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;padding:10px 18px;z-index:3}
+.track,.axis{width:calc(100% - var(--label-width));flex-shrink:0}.track{min-height:96px;background-image:none}
+.weekline{position:absolute;top:0;bottom:0;border-left:1px solid #edf1e9;pointer-events:none}
+.bar{height:24px;top:44px;min-width:3px;cursor:default;border-radius:5px;z-index:2}.bar:hover{filter:none;opacity:.94;box-shadow:inset 0 1px 0 #ffffff22,0 1px 2px #173a2512}
+.gridrow:hover>.track{background-color:transparent}.gridrow:hover>.left{background:#fff}
+.gridrow.group{min-height:38px;height:38px}.group .left{flex-direction:row;justify-content:space-between;align-items:center;padding:8px 18px;gap:10px}.group .left strong{font-size:12px}.group .left span{font-size:10px;padding:0;color:#50654f;white-space:nowrap}.group .track{min-height:38px;background-color:#f0f4ed}
+.head{height:66px;min-height:66px;position:relative;top:auto}.head .left{justify-content:center;font-size:10px;padding:0 18px;z-index:4}.head .left>b{padding:0;font-weight:500}
+.months{height:35px}.months>div{overflow:hidden;white-space:nowrap;text-transform:capitalize;font-size:10px;padding:9px 7px;flex-shrink:0}
+.weeks{height:31px;position:relative}.weeks span{position:absolute;font-size:8px;color:#8a9788;top:8px;padding-left:4px}
+.gridrow.phase{height:auto;align-items:stretch}.phase .left{display:block;padding:0}.phase-main{padding:13px 18px 10px;min-height:158px}
+.phase-main>strong{display:block;font-size:12px;font-weight:600;line-height:1.3}.phase-price{display:block;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.15px;margin:5px 0 4px}.phase-dates{font-size:10px;color:var(--muted);line-height:1.4}
+.unit-payments{display:grid;gap:6px;margin-top:9px}.payment-item{display:grid;gap:2px;padding:5px 8px;border-left:2px solid;border-radius:0 5px 5px 0;font-size:10px;font-variant-numeric:tabular-nums;line-height:1.35}.payment-item span{font-size:9px}.payment-item i{font-style:normal;font-size:8px}.payment-item b{font-size:11px;font-weight:600;letter-spacing:-.1px}.payment-item.advance{background:#fff4e3;color:#8c622c;border-color:#c18a38}.payment-item.final{background:#edf5f4;color:#3f7076;border-color:#4e8c94}
+.payment-marker{position:absolute;width:10px;height:10px;transform:translateX(-50%);border:2px solid #fff;z-index:3;pointer-events:none}.payment-marker.advance{top:24px;transform:translateX(-50%) rotate(45deg);background:#c18a38;box-shadow:0 0 0 1px #a47127}.payment-marker.final{top:81px;border-radius:50%;background:#4e8c94;box-shadow:0 0 0 1px #337a83}
+.substeps{counter-reset:substep;list-style:none;margin:0;padding:3px 18px 13px 30px}.substeps li{counter-increment:substep;position:relative;font-size:11px;line-height:1.5;color:#657368;padding:3px 0 3px 16px}.substeps li:before{content:counter(substep) '.';position:absolute;left:0;top:3px;font-size:9px;color:#98a293;font-variant-numeric:tabular-nums}
+.phase-parallel{margin:0;padding:0 18px 14px 46px;font-size:10px;line-height:1.5;color:#8a9586}.phase .track{min-height:158px}
+.website-parent{height:80px;min-height:80px;border-top:1px solid #dbe4d9;background:#f6f8f3}.website-parent .left{background:#f6f8f3}.website-parent .left strong{font-size:12px;font-weight:650}.website-parent .left>b{font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}.website-parent .left>span{font-size:10px;padding:0;color:var(--muted)}.website-parent .track{min-height:80px}.website-parent .summary{height:7px;top:36px;border-radius:4px;opacity:.6}
+.website-part .phase-main{padding-left:30px}.website-part .phase-main>strong{color:#42654d;font-size:12px}.website-part .substeps{padding-left:42px}.website-part .phase-parallel{padding-left:58px}
+.client-dependencies{position:absolute;top:0;left:0;pointer-events:none;z-index:1;overflow:visible}.client-dependencies .dependency{stroke:#9aa99e;stroke-width:1.2;opacity:.7}
+.chart-foot{display:flex;gap:20px;justify-content:space-between;margin:12px 2px 0;font-size:10px;color:var(--muted)}.chart-foot p{margin:0}.error{padding:20px;white-space:normal}
+.legend-dot{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:5px}.legend-dot.identity{background:#857899}.legend-dot.website{background:#36765e}
+@media(max-width:900px){main{padding:0 18px 24px}.hero{gap:16px}h1{font-size:29px}.hero-total strong{font-size:20px}.chart-content{--label-width:340px;min-width:1060px}.group .left span{font-size:9px}.chart-intro{padding:13px 15px}.chart-foot{font-size:9px}}
+@media(max-width:600px){main{padding:0 14px 24px}.appbar{min-height:62px;gap:12px}.brand{font-size:20px}.back-link{font-size:10px;padding:7px 10px}.hero{padding:22px 0;display:block}h1{font-size:29px}.subtitle{font-size:12px;margin-top:8px}.plan-note{font-size:10px}.hero-total{text-align:left;margin-top:17px;gap:4px}.hero-total strong{font-size:22px}.chart-content{--label-width:240px;min-width:950px}.gridrow .left{padding:9px 12px;gap:5px}.phase .left{padding:0}.phase-main{padding:12px 12px 10px}.phase-main>strong{font-size:11px}.phase-price{font-size:12px;line-height:1.25}.phase-dates{font-size:9px}.payment-item{padding:5px 6px}.payment-item span{font-size:8px}.payment-item b{font-size:10px}.substeps{padding-left:20px;padding-right:12px}.substeps li{font-size:10px;line-height:1.5}.phase-parallel{padding-left:36px;padding-right:12px;font-size:9px}.website-part .phase-main{padding-left:22px}.website-part .substeps{padding-left:30px}.website-part .phase-parallel{padding-left:46px}.group .left{padding:8px 12px;gap:4px;align-items:flex-start;justify-content:center;flex-direction:column}.group .left strong{font-size:10px}.group .left span{font-size:8px}.head .left{padding-left:12px;font-size:9px}.website-parent .left strong{font-size:11px}.website-parent .left>b{font-size:11px}.website-parent .left>span{font-size:9px}.chart-intro{display:block;font-size:11px}.chart-intro span{display:block;font-size:10px;margin-top:4px}.chart-foot{display:block;font-size:9px;line-height:1.5}.chart-foot p+p{margin-top:5px}}
 @media print{main{padding:0}.appbar{min-height:50px}.back-link{display:none}.hero{padding:18px 0}.chart-content{min-width:1000px}.scroll{overflow:visible}.chart-section{overflow:visible}.hero-total strong{font-size:20px}.chart-foot{color:#536053}}
-.track{background-image:none}.weekline{position:absolute;top:0;bottom:0;border-left:1px solid #edf1e9;pointer-events:none}
 </style></head>
 <body><main>
 <header class="appbar"><div class="brand">Aff<span>Arts</span> × Эденталь</div><a class="back-link" href="./#website">← Коммерческое предложение</a></header>
 <section class="hero"><div><h1>Этапы и оплаты</h1><p class="subtitle" id="project-dates"></p><p class="plan-note" id="plan-caption">План по верхней границе сроков КП</p></div><div class="hero-total"><span>Весь выбранный состав</span><strong id="project-total"></strong></div></section>
-<section class="chart-section" aria-label="График этапов проекта"><div class="chart-intro"><b>Последовательность работ</b><span>100% оплаты перед началом каждого этапа</span></div><div id="gantt" class="scroll" tabindex="0" aria-label="График, горизонтальная прокрутка"></div></section>
+<section class="chart-section" aria-label="График этапов проекта"><div class="chart-intro"><b>Последовательность работ</b><span><i class="advance-key">◆</i> 50% до начала &nbsp; <i class="final-key">●</i> 50% после завершения</span></div><div id="gantt" class="scroll" tabindex="0" aria-label="График, горизонтальная прокрутка"></div></section>
 <div class="chart-foot"><p><span class="legend-dot identity"></span>Айдентика &nbsp; <span class="legend-dot website"></span>Сайт</p><p>Сайт начинается параллельно с брендбуком.</p></div>
 <noscript><p>Для отображения графика включите JavaScript.</p></noscript>
 </main><script>(function(root,factory){
@@ -385,8 +413,9 @@ main{max-width:1680px;padding:0 32px 32px}.appbar{min-height:70px}.brand{font-si
   return {validate,calculate,calendar};
 });
 
-const EDENTAL_PRICING={"website":{"baseCents":104961100,"baseMaxCents":115457200,"basePages":["Главная","Услуги: общий раздел","Направление услуг","Детальная страница услуги","Цены","Портфолио","Страница кейса","Блог","Статья","О клинике","Контакты","Юридическая информация","Страница ошибки"],"launch":{"priceCents":0},"features":[{"id":"doctors","name":"Врачи","stage":1,"pages":2,"priceCents":9802600,"maxCents":10782900},{"id":"reviews","name":"Отзывы","stage":1,"pages":2,"priceCents":6537800,"maxCents":7191500},{"id":"promos","name":"Акции","stage":1,"pages":2,"priceCents":5869600,"maxCents":6456600},{"id":"faq","name":"Вопросы и ответы","stage":2,"pages":2,"priceCents":5349800,"maxCents":5884800},{"id":"equipment","name":"Оборудование","stage":2,"pages":2,"priceCents":6537800,"maxCents":7191500},{"id":"career","name":"Карьера и вакансии","stage":2,"pages":3,"priceCents":15280100,"maxCents":16808100},{"id":"documents","name":"Документы и сертификаты","stage":2,"pages":1,"priceCents":2824400,"maxCents":3106800},{"id":"health","name":"Анкета о состоянии здоровья","stage":2,"pages":1,"priceCents":4460900,"maxCents":4906900}],"fees":[{"id":"stage2","stage":1,"name":"Подготовка и сопровождение второго этапа","priceCents":6433100,"maxCents":7076400},{"id":"stage3","stage":2,"name":"Подготовка и сопровождение третьего этапа","priceCents":6686000,"maxCents":7354800}],"stages":[{"id":"mvp","number":1,"name":"Базовый сайт — MVP","minWeeks":14,"maxWeeks":21},{"id":"stage2","number":2,"name":"Врачи, отзывы и акции","optionStage":1,"minWeeks":3,"maxWeeks":5},{"id":"stage3","number":3,"name":"Дополнительные разделы","optionStage":2,"minWeeks":5,"maxWeeks":7}]},"identity":{"coreCents":12000000,"carriers":[{"id":"badge","name":"Бейдж","defaultQuantity":2,"unitCents":{"basic":300000,"premium":330000}},{"id":"business-card","name":"Визитки","defaultQuantity":2,"unitCents":{"basic":400000,"premium":440000}},{"id":"table-tent","name":"Тейблтент","defaultQuantity":2,"unitCents":{"basic":500000,"premium":550000}},{"id":"paper-bag","name":"Фирменный пакет","defaultQuantity":2,"unitCents":{"basic":400000,"premium":440000}},{"id":"post","name":"Макет поста","defaultQuantity":7,"unitCents":{"basic":300000,"premium":330000}},{"id":"story","name":"Макет сторис","defaultQuantity":7,"unitCents":{"basic":200000,"premium":220000}},{"id":"city-banner","name":"City-баннер A1","defaultQuantity":2,"unitCents":{"basic":500000,"premium":550000}},{"id":"billboard","name":"Горизонтальный билборд","defaultQuantity":2,"unitCents":{"basic":600000,"premium":660000}},{"id":"flyer","name":"Флаер A6","defaultQuantity":2,"unitCents":{"basic":550000,"premium":605000}}],"brandbook":{"items":[{"id":"concept","name":"Страница с описанием концепции","defaultQuantity":1,"unitCents":{"basic":500000,"premium":500000}},{"id":"values","name":"Страница с описанием миссии и ценностей","defaultQuantity":1,"unitCents":{"basic":500000,"premium":500000}},{"id":"logo-rules","name":"Правила использования логотипа","defaultQuantity":1,"unitCents":{"basic":1500000,"premium":1500000}},{"id":"color-rules","name":"Правила работы с цветами","defaultQuantity":1,"unitCents":{"basic":1000000,"premium":1000000}},{"id":"type-rules","name":"Правила работы со шрифтами","defaultQuantity":1,"unitCents":{"basic":1000000,"premium":1000000}},{"id":"graphic-rules","name":"Графика и композиционные приёмы","defaultQuantity":1,"unitCents":{"basic":1500000,"premium":2000000}},{"id":"photo-rules","name":"Правила фотостиля","defaultQuantity":1,"unitCents":{"basic":1000000,"premium":1000000}},{"id":"carrier-examples","name":"Примеры применения на носителях","defaultQuantity":1,"unitCents":{"basic":1000000,"premium":1500000}},{"id":"handoff","name":"Сборка брендбука, PDF/Figma и комплект файлов","defaultQuantity":1,"unitCents":{"basic":1000000,"premium":1000000}}]},"templates":[{"id":"post-template","name":"Auto Layout: шаблон поста","defaultQuantity":7,"unitCents":250000},{"id":"story-template","name":"Auto Layout: шаблон сторис","defaultQuantity":7,"unitCents":200000},{"id":"file-transfer","name":"Перенос макетов в Illustrator или Photoshop","defaultQuantity":1,"maxQuantity":1,"unitCents":850000}],"merch":[{"id":"shopper","name":"Шопер","defaultQuantity":1,"unitCents":1500000},{"id":"diary","name":"Ежедневник","defaultQuantity":1,"unitCents":2500000},{"id":"hoodie","name":"Худи","defaultQuantity":1,"unitCents":2500000},{"id":"blanket","name":"Плед","defaultQuantity":1,"unitCents":2000000},{"id":"mug","name":"Кружка","defaultQuantity":1,"unitCents":1000000},{"id":"gift-bag","name":"Подарочные пакеты","defaultQuantity":1,"unitCents":2000000}],"features":[{"id":"templates","name":"Редактируемые шаблоны","priceCents":4000000},{"id":"animation","name":"Анимация логотипа","priceCents":2000000},{"id":"merch","name":"Корпоративный мерч","priceCents":11500000}]}};
+const EDENTAL_PRICING={"website":{"baseCents":104961100,"baseMaxCents":115457200,"basePages":["Главная","Услуги: общий раздел","Направление услуг","Детальная страница услуги","Цены","Портфолио","Страница кейса","Блог","Статья","О клинике","Контакты","Юридическая информация","Страница ошибки"],"launch":{"priceCents":0},"features":[{"id":"doctors","name":"Врачи","stage":1,"pages":2,"priceCents":9802600,"maxCents":10782900},{"id":"reviews","name":"Отзывы","stage":1,"pages":2,"priceCents":6537800,"maxCents":7191500},{"id":"promos","name":"Акции","stage":1,"pages":2,"priceCents":5869600,"maxCents":6456600},{"id":"faq","name":"Вопросы и ответы","stage":2,"pages":2,"priceCents":5349800,"maxCents":5884800},{"id":"equipment","name":"Оборудование","stage":2,"pages":2,"priceCents":6537800,"maxCents":7191500},{"id":"career","name":"Карьера и вакансии","stage":2,"pages":3,"priceCents":15280100,"maxCents":16808100},{"id":"documents","name":"Документы и сертификаты","stage":2,"pages":1,"priceCents":2824400,"maxCents":3106800},{"id":"health","name":"Анкета о состоянии здоровья","stage":2,"pages":1,"priceCents":4460900,"maxCents":4906900}],"fees":[{"id":"stage2","stage":1,"name":"Подготовка и сопровождение второго этапа","priceCents":6433100,"maxCents":7076400},{"id":"stage3","stage":2,"name":"Подготовка и сопровождение третьего этапа","priceCents":6686000,"maxCents":7354800}],"stages":[{"id":"mvp","number":1,"name":"Базовый сайт — MVP","minWeeks":14,"maxWeeks":21,"priceCents":104961100,"maxCents":115457200,"designPriceCents":40644100,"designMaxCents":44708500},{"id":"stage2","number":2,"name":"Врачи, отзывы и акции","optionStage":1,"minWeeks":3,"maxWeeks":5,"priceCents":28643100,"maxCents":31507400,"designPriceCents":12966600,"designMaxCents":14263200},{"id":"stage3","number":3,"name":"Дополнительные разделы","optionStage":2,"minWeeks":5,"maxWeeks":7,"priceCents":41139000,"maxCents":45252900,"designPriceCents":20190300,"designMaxCents":22209300}]},"identity":{"coreCents":12000000,"carriers":[{"id":"badge","name":"Бейдж","defaultQuantity":2,"unitCents":{"basic":300000,"premium":330000}},{"id":"business-card","name":"Визитки","defaultQuantity":2,"unitCents":{"basic":400000,"premium":440000}},{"id":"table-tent","name":"Тейблтент","defaultQuantity":2,"unitCents":{"basic":500000,"premium":550000}},{"id":"paper-bag","name":"Фирменный пакет","defaultQuantity":2,"unitCents":{"basic":400000,"premium":440000}},{"id":"post","name":"Макет поста","defaultQuantity":7,"unitCents":{"basic":300000,"premium":330000}},{"id":"story","name":"Макет сторис","defaultQuantity":7,"unitCents":{"basic":200000,"premium":220000}},{"id":"city-banner","name":"City-баннер A1","defaultQuantity":2,"unitCents":{"basic":500000,"premium":550000}},{"id":"billboard","name":"Горизонтальный билборд","defaultQuantity":2,"unitCents":{"basic":600000,"premium":660000}},{"id":"flyer","name":"Флаер A6","defaultQuantity":2,"unitCents":{"basic":550000,"premium":605000}}],"brandbook":{"items":[{"id":"concept","name":"Страница с описанием концепции","defaultQuantity":1,"unitCents":{"basic":500000,"premium":500000}},{"id":"values","name":"Страница с описанием миссии и ценностей","defaultQuantity":1,"unitCents":{"basic":500000,"premium":500000}},{"id":"logo-rules","name":"Правила использования логотипа","defaultQuantity":1,"unitCents":{"basic":1500000,"premium":1500000}},{"id":"color-rules","name":"Правила работы с цветами","defaultQuantity":1,"unitCents":{"basic":1000000,"premium":1000000}},{"id":"type-rules","name":"Правила работы со шрифтами","defaultQuantity":1,"unitCents":{"basic":1000000,"premium":1000000}},{"id":"graphic-rules","name":"Графика и композиционные приёмы","defaultQuantity":1,"unitCents":{"basic":1500000,"premium":2000000}},{"id":"photo-rules","name":"Правила фотостиля","defaultQuantity":1,"unitCents":{"basic":1000000,"premium":1000000}},{"id":"carrier-examples","name":"Примеры применения на носителях","defaultQuantity":1,"unitCents":{"basic":1000000,"premium":1500000}},{"id":"handoff","name":"Сборка брендбука, PDF/Figma и комплект файлов","defaultQuantity":1,"unitCents":{"basic":1000000,"premium":1000000}}]},"templates":[{"id":"post-template","name":"Auto Layout: шаблон поста","defaultQuantity":7,"unitCents":250000},{"id":"story-template","name":"Auto Layout: шаблон сторис","defaultQuantity":7,"unitCents":200000},{"id":"file-transfer","name":"Перенос макетов в Illustrator или Photoshop","defaultQuantity":1,"maxQuantity":1,"unitCents":850000}],"merch":[{"id":"shopper","name":"Шопер","defaultQuantity":1,"unitCents":1500000},{"id":"diary","name":"Ежедневник","defaultQuantity":1,"unitCents":2500000},{"id":"hoodie","name":"Худи","defaultQuantity":1,"unitCents":2500000},{"id":"blanket","name":"Плед","defaultQuantity":1,"unitCents":2000000},{"id":"mug","name":"Кружка","defaultQuantity":1,"unitCents":1000000},{"id":"gift-bag","name":"Подарочные пакеты","defaultQuantity":1,"unitCents":2000000}],"features":[{"id":"templates","name":"Редактируемые шаблоны","priceCents":4000000},{"id":"animation","name":"Анимация логотипа","priceCents":2000000},{"id":"merch","name":"Корпоративный мерч","priceCents":11500000}]}};
 const EDENTAL_CALENDAR={"start":"2026-01-01","end":"2027-12-31","source":"https://www.cbr.ru/other/holidays/","holidays":["2026-01-01","2026-01-02","2026-01-03","2026-01-04","2026-01-05","2026-01-06","2026-01-07","2026-01-08","2026-01-09","2026-02-23","2026-03-08","2026-03-09","2026-05-01","2026-05-09","2026-05-11","2026-06-12","2026-11-04","2026-12-31","2027-01-01","2027-01-02","2027-01-03","2027-01-04","2027-01-05","2027-01-06","2027-01-07","2027-01-08","2027-02-23","2027-03-08","2027-05-01","2027-05-09","2027-06-12","2027-11-04","2027-02-22","2027-05-03","2027-05-10","2027-06-14","2027-11-05","2027-12-31"],"dayHours":{"2026-04-30":7,"2026-05-08":7,"2026-06-11":7,"2026-11-03":7,"2027-02-20":7,"2027-04-30":7,"2027-06-11":7,"2027-11-03":7}};
+const EDENTAL_STAGE_SPLITS={"mvp":{"min":{"designDays":27,"developmentDays":43},"max":{"designDays":40,"developmentDays":65}},"stage2":{"min":{"designDays":5,"developmentDays":10},"max":{"designDays":10,"developmentDays":15}},"stage3":{"min":{"designDays":10,"developmentDays":15},"max":{"designDays":15,"developmentDays":20}}};
 const EDENTAL_MATH=(function(){const pricing=EDENTAL_PRICING;
 
 const rubles = cents => new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 2 }).format(cents / 100) + ' ₽';
@@ -449,8 +478,9 @@ return {normalizeQuantity,websiteTotal,defaultIdentityQuantities,identityTotal};
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) module.exports = factory;
   else root.createEdentalPlanner = factory;
-})(typeof window === 'object' ? window : globalThis, function (engine, pricing, math, calendarData) {
+})(typeof window === 'object' ? window : globalThis, function (engine, pricing, math, calendarData, stageSplits) {
   'use strict';
+  stageSplits = stageSplits || {};
   const DAY = 86400000;
   const shift = (date, days) => new Date(Date.parse(date + 'T12:00:00Z') + days * DAY).toISOString().slice(0, 10);
   const validDate = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value + 'T12:00:00Z')) && new Date(value + 'T12:00:00Z').toISOString().slice(0, 10) === value;
@@ -500,6 +530,64 @@ return {normalizeQuantity,websiteTotal,defaultIdentityQuantities,identityTotal};
     }
     return normalizeState(input);
   }
+  function substepsFor(id, identity, website) {
+    const labels = (group, ids, names) => ids.filter(itemId => identity.items.some(item => item.group === group && item.id === itemId && item.quantity > 0)).map(itemId => names[itemId]);
+    const joined = names => names.length > 1 ? names.slice(0, -1).join(', ') + ' и ' + names.at(-1) : names[0];
+    const capitalize = text => text[0].toUpperCase() + text.slice(1);
+    const has = feature => website.items.some(item => item.id === feature);
+    if (id === 'identity-core') return ['Смысловая концепция', 'Доработка логотипа', 'Цветовая палитра', 'Шрифтовые сочетания', 'Фирменная графика и композиция'];
+    if (id === 'identity-carriers') {
+      const names = { badge: 'бейдж', 'business-card': 'визитки', 'table-tent': 'тейблтент', 'paper-bag': 'фирменный пакет', post: 'макеты постов', story: 'макеты сторис', 'city-banner': 'City-баннер', billboard: 'билборд', flyer: 'флаер A6' };
+      return [['badge', 'business-card'], ['table-tent', 'paper-bag'], ['post', 'story'], ['city-banner', 'billboard'], ['flyer']].map(ids => labels('carriers', ids, names)).filter(group => group.length).map(group => capitalize(joined(group)));
+    }
+    if (id === 'identity-brandbook') return ['Описание концепции, миссии и ценностей', 'Правила использования логотипа', 'Цвета и типографика', 'Графика, композиция и фотостиль', 'Применение на носителях', 'Сборка брендбука и исходных файлов'];
+    if (id === 'identity-extras') {
+      const result = [];
+      if (identity.templatesCents > 0) result.push('Редактируемые шаблоны постов и сторис');
+      if (identity.animationCents > 0) result.push('Анимация логотипа');
+      const names = { shopper: 'шопер', diary: 'ежедневник', hoodie: 'худи', blanket: 'плед', mug: 'кружка', 'gift-bag': 'подарочные пакеты' };
+      for (const ids of [['shopper', 'diary'], ['hoodie', 'blanket'], ['mug', 'gift-bag']]) {
+        const selected = labels('merch', ids, names);
+        if (selected.length) result.push('Мерч: ' + joined(selected));
+      }
+      return result;
+    }
+    if (id === 'website-mvp') return ['Структура и дизайн-концепция', 'Макеты, адаптивы и UI kit', 'Фронтенд сайта', 'Бэкенд WordPress и аналитика', 'Тестирование сайта', 'Запуск на домене заказчика'];
+    if (id === 'website-stage2') {
+      const names = { doctors: 'врачей', reviews: 'отзывов', promos: 'акций' };
+      const sections = ['doctors', 'reviews', 'promos'].filter(has).map(feature => names[feature]);
+      return ['Дизайн страниц и адаптивов', 'UI kit и документация', 'Фронтенд ' + joined(sections), 'Бэкенд WordPress', 'Тестирование новых разделов'];
+    }
+    if (id === 'website-stage3') {
+      const result = ['Дизайн, адаптивы и компоненты'];
+      const names = { faq: 'FAQ', equipment: 'оборудования', documents: 'документов' };
+      const sections = ['faq', 'equipment', 'documents'].filter(has).map(feature => names[feature]);
+      if (sections.length) result.push('Фронтенд ' + joined(sections));
+      if (has('career')) result.push('Карьера, вакансии и резюме');
+      if (has('health')) result.push('Многошаговая анкета здоровья');
+      return [...result, 'Бэкенд WordPress', 'Тестирование разделов и форм'];
+    }
+    return [];
+  }
+  function splitWebsitePrice(phase, stage) {
+    const sourceMin = stage.designPriceCents ?? stage.deliverables[0].priceCents;
+    const sourceMax = stage.designMaxCents ?? stage.deliverables[0].maxCents;
+    // A partial option selection retains the published design share of this stage.
+    const designMin = phase.minCents === stage.priceCents ? sourceMin : Math.ceil(phase.minCents * sourceMin / stage.priceCents / 100) * 100;
+    const designMax = phase.maxCents === stage.maxCents ? sourceMax : Math.ceil(phase.maxCents * sourceMax / stage.maxCents / 100) * 100;
+    return {
+      design: { minCents: designMin, maxCents: designMax },
+      development: { minCents: phase.minCents - designMin, maxCents: phase.maxCents - designMax }
+    };
+  }
+  function splitPayments(unit) {
+    const advanceMin = Math.ceil(unit.minCents / 200) * 100;
+    const advanceMax = Math.ceil(unit.maxCents / 200) * 100;
+    return [
+      { id: unit.id + '-advance', unitId: unit.id, stage: unit.stage, title: unit.title, type: 'advance', date: unit.start, minCents: advanceMin, maxCents: advanceMax },
+      { id: unit.id + '-final', unitId: unit.id, stage: unit.stage, title: unit.title, type: 'final', date: unit.end, minCents: unit.minCents - advanceMin, maxCents: unit.maxCents - advanceMax }
+    ];
+  }
   function calculate(input = {}, durations = {}) {
     const state = normalizeState(input);
     const identity = math.identityTotal(state.identity === 'premium', state.quantities, state.identityFeatures);
@@ -542,21 +630,39 @@ return {normalizeQuantity,websiteTotal,defaultIdentityQuantities,identityTotal};
     const result = engine.calculate(project);
     if (!result.complete || result.tasks.some(task => task.blocked)) throw Error('Не удалось построить последовательность этапов.');
     for (const task of result.tasks) { guard(task.start); guard(task.end); }
-    const phases = result.tasks.filter(task => !task.milestone).map(task => ({ ...task, paymentDate: previousWorkday(task.start) }));
-    const payments = phases.filter(task => task.maxCents > 0).map(task => ({ id: task.id, stage: task.stage, title: task.title, date: task.paymentDate, minCents: task.minCents, maxCents: task.maxCents })).sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
+    const phases = result.tasks.filter(task => !task.milestone).map(task => ({ ...task, substeps: substepsFor(task.id, identity, website) }));
+    const paymentUnits = [];
+    for (const phase of phases) {
+      if (phase.stage === 'identity') {
+        paymentUnits.push({ ...phase, phaseId: phase.id, kind: 'identity' });
+        continue;
+      }
+      const stage = website.stages.find(item => 'website-' + item.id === phase.id);
+      const allocation = stageSplits[stage.id]?.[state.scenario];
+      if (!allocation || !Number.isInteger(allocation.designDays) || !Number.isInteger(allocation.developmentDays) || allocation.designDays < 1 || allocation.developmentDays < 1 || allocation.designDays + allocation.developmentDays !== phase.duration) throw Error('Не подтверждена плановая разбивка подэтапов сайта.');
+      const prices = splitWebsitePrice(phase, stage);
+      const designEnd = calendar.end(phase.start, allocation.designDays);
+      const developmentStart = calendar.nextWorkday(designEnd);
+      if (calendar.end(developmentStart, allocation.developmentDays) !== phase.end) throw Error('Подэтапы выходят за границы этапа сайта.');
+      const designCount = stage.id === 'mvp' || stage.id === 'stage2' ? 2 : 1;
+      paymentUnits.push({ id: phase.id + '-design', phaseId: phase.id, stage: 'website', kind: 'design', title: 'Дизайн', start: phase.start, end: designEnd, duration: allocation.designDays, ...prices.design, substeps: phase.substeps.slice(0, designCount) });
+      paymentUnits.push({ id: phase.id + '-development', phaseId: phase.id, stage: 'website', kind: 'development', title: 'Разработка и тестирование', start: developmentStart, end: phase.end, duration: allocation.developmentDays, ...prices.development, substeps: phase.substeps.slice(designCount) });
+    }
+    for (const unit of paymentUnits) unit.payments = splitPayments(unit);
+    const payments = paymentUnits.flatMap(unit => unit.payments).sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
     const total = { minCents: identity.totalCents + website.totalCents, maxCents: identity.totalCents + website.maxCents };
     if (payments.reduce((sum, payment) => sum + payment.minCents, 0) !== total.minCents || payments.reduce((sum, payment) => sum + payment.maxCents, 0) !== total.maxCents) throw Error('Сумма этапов не совпадает с составом предложения.');
     const brandbook = phases.find(task => task.id === 'identity-brandbook');
     const mvp = phases.find(task => task.id === 'website-mvp');
     if (brandbook.start !== mvp.start) throw Error('Нарушен параллельный старт брендбука и сайта.');
-    return { state, project, result, phases, payments, total, identity, website, start: phases[0].start, finish: result.finish };
+    return { state, project, result, phases, paymentUnits, payments, total, identity, website, start: phases[0].start, finish: result.finish };
   }
-  return { normalizeState, fromSearch, calculate, calendar, previousWorkday, shift };
+  return { normalizeState, fromSearch, calculate, calendar, previousWorkday, shift, splitWebsitePrice, splitPayments };
 });
 
 (function () {
   'use strict';
-  const planner = createEdentalPlanner(GanttEngine, EDENTAL_PRICING, EDENTAL_MATH, EDENTAL_CALENDAR);
+  const planner = createEdentalPlanner(GanttEngine, EDENTAL_PRICING, EDENTAL_MATH, EDENTAL_CALENDAR, EDENTAL_STAGE_SPLITS);
   const mount = document.getElementById('gantt');
   const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
   const date = value => value.slice(8, 10) + '.' + value.slice(5, 7) + '.' + value.slice(0, 4);
@@ -568,77 +674,77 @@ return {normalizeQuantity,websiteTotal,defaultIdentityQuantities,identityTotal};
   try {
     const plan = planner.calculate(planner.fromSearch(location.search));
     document.getElementById('project-dates').textContent = interval(plan.start, plan.finish);
-    document.getElementById('plan-caption').textContent = plan.state.scenario === 'min' ? 'План по нижней границе сроков КП' : 'План по верхней границе сроков КП';
+    document.getElementById('plan-caption').textContent = (plan.state.scenario === 'min' ? 'План по нижней границе сроков КП' : 'План по верхней границе сроков КП') + '. Плановая разбивка внутри сроков этапов.';
     document.getElementById('project-total').textContent = money(plan.total.minCents, plan.total.maxCents);
-    const start = plan.payments[0].date;
+    const start = plan.start;
     const end = new Date(Date.UTC(Number(plan.finish.slice(0, 4)), Number(plan.finish.slice(5, 7)), 0, 12)).toISOString().slice(0, 10);
     const days = Math.round((Date.parse(end + 'T12:00:00Z') - Date.parse(start + 'T12:00:00Z')) / 86400000) + 1;
     const dayIndex = value => Math.round((Date.parse(value + 'T12:00:00Z') - Date.parse(start + 'T12:00:00Z')) / 86400000);
     const percent = value => dayIndex(value) * 100 / days;
-    const months = [];
-    const weeks = [];
+    const months = [], weeks = [];
     let month = '';
     for (let index = 0; index < days; index++) {
-      const current = planner.shift(start, index);
-      const key = current.slice(0, 7);
-      if (key !== month) {
-        months.push({ date: current, length: 1 }); month = key;
-      } else months[months.length - 1].length++;
+      const current = planner.shift(start, index), key = current.slice(0, 7);
+      if (key !== month) { months.push({ date: current, length: 1 }); month = key; }
+      else months[months.length - 1].length++;
       if (new Date(current + 'T12:00:00Z').getUTCDay() === 1) weeks.push({ date: current, index });
     }
     const monthNames = ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
     const monthLabel = value => monthNames[Number(value.slice(5, 7)) - 1] + ' ' + value.slice(2, 4);
     const weekLines = weeks.map(item => '<i class="weekline" style="left:' + item.index * 100 / days + '%"></i>').join('');
-    const header = '<div class="gridrow head"><div class="left"><b>Этап / стоимость / оплата</b></div><div class="axis"><div class="months">' + months.map(item => '<div style="width:' + item.length * 100 / days + '%">' + monthLabel(item.date) + '</div>').join('') + '</div><div class="weeks">' + weeks.map(item => '<span style="left:' + item.index * 100 / days + '%">' + item.date.slice(8, 10) + '</span>').join('') + '</div></div></div>';
-    const rows = [];
-    const positions = new Map();
-    const height = 96;
-    const groupHeight = 38;
-    const headerHeight = 66;
-    let y = headerHeight;
+    const header = '<div class="gridrow head"><div class="left"><b>Этапы, состав и платежи</b></div><div class="axis"><div class="months">' + months.map(item => '<div style="width:' + item.length * 100 / days + '%">' + monthLabel(item.date) + '</div>').join('') + '</div><div class="weeks">' + weeks.map(item => '<span style="left:' + item.index * 100 / days + '%">' + item.date.slice(8, 10) + '</span>').join('') + '</div></div></div>';
+    const rows = [], positions = new Map();
+    function bar(item, color, summary = false) {
+      const left = percent(item.start), width = (dayIndex(item.end) - dayIndex(item.start) + 1) * 100 / days;
+      positions.set(item.id, { id: item.id, x1: left, x2: left + width });
+      return '<div class="bar' + (summary ? ' summary' : '') + '" style="left:' + left + '%;width:' + width + '%;background:' + color + '" role="img" aria-label="' + escape(item.title + ': ' + interval(item.start, item.end)) + '"></div>';
+    }
+    function payableRow(unit, color, nested = false) {
+      const children = '<ol class="substeps">' + unit.substeps.map(title => '<li>' + escape(title) + '</li>').join('') + '</ol>';
+      const parallel = unit.stage === 'website' && unit.kind === 'development' ? '<p class="phase-parallel">Управление и согласования — на всём этапе</p>' : '';
+      const payments = unit.payments.map(payment => '<div class="payment-item ' + payment.type + '"><span><i aria-hidden="true">' + (payment.type === 'advance' ? '◆' : '●') + '</i> ' + (payment.type === 'advance' ? '50% до начала' : '50% после завершения') + ' · ' + date(payment.date) + '</span><b>' + money(payment.minCents, payment.maxCents) + '</b></div>').join('');
+      const markers = unit.payments.map(payment => '<span class="payment-marker ' + payment.type + '" style="left:' + (percent(payment.date) + 50 / days) + '%" role="img" aria-label="' + escape((payment.type === 'advance' ? 'Аванс 50%: ' : 'Оплата 50% после завершения: ') + date(payment.date) + ', ' + money(payment.minCents, payment.maxCents)) + '"></span>').join('');
+      return '<div class="gridrow phase payable' + (nested ? ' website-part' : '') + '" data-id="' + escape(unit.id) + '"><div class="left"><div class="phase-main"><strong>' + escape(unit.title) + '</strong><b class="phase-price">' + money(unit.minCents, unit.maxCents) + '</b><div class="phase-dates">' + interval(unit.start, unit.end) + '</div><div class="unit-payments">' + payments + '</div></div>' + children + parallel + '</div><div class="track">' + weekLines + bar(unit, color) + markers + '</div></div>';
+    }
     for (const group of plan.project.stages) {
       const tasks = plan.phases.filter(task => task.stage === group.id);
       if (!tasks.length) continue;
-      const groupMin = tasks.reduce((sum, task) => sum + task.minCents, 0);
-      const groupMax = tasks.reduce((sum, task) => sum + task.maxCents, 0);
-      rows.push('<div class="gridrow group"><div class="left"><strong>' + escape(group.label) + '</strong><span>' + money(groupMin, groupMax) + '</span></div><div class="track"></div></div>');
-      y += groupHeight;
+      const min = tasks.reduce((sum, task) => sum + task.minCents, 0), max = tasks.reduce((sum, task) => sum + task.maxCents, 0);
+      rows.push('<div class="gridrow group"><div class="left"><strong>' + escape(group.label) + '</strong><span>' + money(min, max) + '</span></div><div class="track"></div></div>');
       for (const task of tasks) {
-        const left = percent(task.start);
-        const width = (dayIndex(task.end) - dayIndex(task.start) + 1) * 100 / days;
-        positions.set(task.id, { x1: left, x2: left + width, y: y + height / 2 });
-        rows.push('<div class="gridrow phase" data-id="' + escape(task.id) + '"><div class="left"><strong>' + escape(task.title) + '</strong><b class="phase-price">' + money(task.minCents, task.maxCents) + '</b><div class="phase-dates"><span>' + interval(task.start, task.end) + '</span><span>Оплата ' + date(task.paymentDate) + '</span></div></div><div class="track">' + weekLines + '<div class="bar" style="left:' + left + '%;width:' + width + '%;background:' + group.color + '" role="img" aria-label="' + escape(task.title + ': ' + interval(task.start, task.end)) + '"></div></div></div>');
-        y += height;
+        const units = plan.paymentUnits.filter(unit => unit.phaseId === task.id);
+        if (task.stage === 'identity') rows.push(payableRow(units[0], group.color));
+        else {
+          rows.push('<div class="gridrow website-parent" data-id="' + escape(task.id) + '"><div class="left"><strong>' + escape(task.title) + '</strong><b>' + money(task.minCents, task.maxCents) + '</b><span>' + interval(task.start, task.end) + '</span></div><div class="track">' + weekLines + bar(task, group.color, true) + '</div></div>');
+          rows.push(...units.map(unit => payableRow(unit, unit.kind === 'design' ? '#739180' : '#36765e', true)));
+        }
       }
     }
     const links = [];
     for (const task of plan.phases) {
       for (let dependency of task.dependsOn) {
         if (dependency === 'identity-ready') dependency = plan.phases.some(item => item.id === 'identity-carriers') ? 'identity-carriers' : 'identity-core';
-        const a = positions.get(dependency), b = positions.get(task.id);
-        if (!a || !b) continue;
-        links.push({ from: a, to: b });
+        const from = positions.get(dependency), to = positions.get(task.id);
+        if (from && to) links.push({ from, to });
       }
+      if (task.stage === 'website') links.push({ from: positions.get(task.id + '-design'), to: positions.get(task.id + '-development') });
     }
-    mount.innerHTML = '<div class="chart-content">' + header + rows.join('') + '<svg class="client-dependencies" aria-hidden="true"><defs><marker id="arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0 0 L5 2.5 L0 5" fill="#9aa99e"/></marker></defs></svg></div>';
-    const content = mount.firstElementChild;
-    const svg = content.querySelector('svg');
+    mount.innerHTML = '<div class="chart-content">' + header + rows.join('') + '<svg class="client-dependencies" aria-hidden="true"></svg></div>';
+    const content = mount.firstElementChild, svg = content.querySelector('svg');
     function drawLinks() {
-      const labelWidth = content.querySelector('.left').getBoundingClientRect().width;
-      const trackWidth = content.querySelector('.axis').getBoundingClientRect().width;
-      const x = percent => labelWidth + percent * trackWidth / 100;
-      svg.setAttribute('width', content.scrollWidth);
-      svg.setAttribute('height', y);
+      const origin = content.getBoundingClientRect();
+      const labelWidth = content.querySelector('.left').getBoundingClientRect().width, trackWidth = content.querySelector('.axis').getBoundingClientRect().width;
+      const x = value => labelWidth + value * trackWidth / 100;
+      const y = position => { const bounds = content.querySelector('[data-id="' + position.id + '"] .bar').getBoundingClientRect(); return bounds.top - origin.top + bounds.height / 2; };
+      svg.setAttribute('width', content.scrollWidth); svg.setAttribute('height', content.scrollHeight);
       svg.innerHTML = '<defs><marker id="arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0 0 L5 2.5 L0 5" fill="#9aa99e"/></marker></defs>' + links.map(link => {
         const a = x(link.from.x2), b = x(link.to.x1), mid = a + Math.max(4, (b - a) / 2);
-        return '<path d="M' + a + ',' + link.from.y + ' H' + mid + ' V' + link.to.y + ' H' + b + '" class="dependency" marker-end="url(#arrow)"/>';
+        return '<path d="M' + a + ',' + y(link.from) + ' H' + mid + ' V' + y(link.to) + ' H' + b + '" class="dependency" marker-end="url(#arrow)"/>';
       }).join('');
     }
     drawLinks();
     if (typeof ResizeObserver !== 'undefined') new ResizeObserver(drawLinks).observe(content);
     document.documentElement.dataset.ganttReady = 'true';
-  } catch (error) {
-    mount.innerHTML = '<p class="error" role="alert">' + escape(error.message) + '</p>';
-  }
+  } catch (error) { mount.innerHTML = '<p class="error" role="alert">' + escape(error.message) + '</p>'; }
 })();
 </script></body></html>
