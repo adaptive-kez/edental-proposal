@@ -1,6 +1,7 @@
 // Client-side PDF export. pdfmake 0.2.23 and Roboto are served from this site.
 const PDF_VENDOR_BASE = 'vendor/pdfmake/';
 let pdfEnginePromise;
+let pdfFontsLoaded = false;
 const clean = value => String(value || '').replace(/\u00a0/g, ' ').replace(/[↗↘↙↖↑↓↔]/g, '').replace(/[\t ]+/g, ' ').replace(/ *\n */g, '\n').trim();
 const nodeText = node => clean(Array.from(node?.childNodes || []).map(child => child.nodeType === 3 ? child.textContent : child.tagName === 'BR' ? '\n' : nodeText(child)).join(' '));
 const blocks = new Set(['ADDRESS', 'ARTICLE', 'ASIDE', 'BLOCKQUOTE', 'DD', 'DETAILS', 'DIV', 'DL', 'DT', 'FIELDSET', 'FIGCAPTION', 'FOOTER', 'HEADER', 'LEGEND', 'LI', 'MAIN', 'OL', 'P', 'SECTION', 'SUMMARY', 'UL']);
@@ -9,20 +10,70 @@ const isHeading = node => /^H[1-6]$/.test(node.tagName);
 function loadScript(source) {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    const timer = setTimeout(() => { script.remove(); reject(new Error('Не удалось загрузить модуль PDF. Проверьте соединение и повторите.')); }, 30000);
+    const cleanup = () => { clearTimeout(timer); script.onload = null; script.onerror = null; script.remove(); };
+    const timer = setTimeout(() => { cleanup(); reject(new Error('Превышено время загрузки модуля PDF.')); }, 30000);
     script.src = source;
-    script.onload = () => { clearTimeout(timer); resolve(); };
-    script.onerror = () => { clearTimeout(timer); script.remove(); reject(new Error('Не удалось загрузить модуль PDF. Повторите скачивание.')); };
+    script.onload = () => { cleanup(); resolve(); };
+    script.onerror = () => { cleanup(); reject(new Error('Не удалось загрузить модуль PDF.')); };
     document.head.append(script);
   });
 }
 
+function engineStatus(message) {
+  const status = document.getElementById('pdf-export-status');
+  if (status) { status.hidden = false; status.textContent = message; }
+}
+
+async function compressedScript(name, attempt) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 30000);
+  try {
+    const response = await fetch(PDF_VENDOR_BASE + name + '.gz', { signal: controller.signal, cache: attempt ? 'reload' : 'default' });
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    const bytes = new Uint8Array(await response.arrayBuffer());
+    // Fetch can already decompress an HTTP Content-Encoding response. A .gz file
+    // without that header still has the gzip magic bytes and is decoded here.
+    const stream = bytes[0] === 0x1f && bytes[1] === 0x8b
+      ? new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))
+      : new Blob([bytes]).stream();
+    const source = await new Response(stream).text();
+    if (!source || /^\s*</.test(source)) throw new Error('Получен некорректный файл PDF-модуля.');
+    return new Blob([source], { type: 'text/javascript' });
+  } finally { clearTimeout(timer); }
+}
+
+async function executeBlob(blob) {
+  const url = URL.createObjectURL(blob);
+  try { await loadScript(url); }
+  finally { URL.revokeObjectURL(url); }
+}
+
 async function loadPdfEngine() {
   if (!pdfEnginePromise) pdfEnginePromise = (async () => {
-    await loadScript(PDF_VENDOR_BASE + 'pdfmake.min.js');
-    await loadScript(PDF_VENDOR_BASE + 'vfs_fonts.js');
-    if (!window.pdfMake?.createPdf) throw new Error('Модуль PDF недоступен.');
-    return window.pdfMake;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      engineStatus((attempt ? 'Повторяем загрузку файлов PDF' : 'Загружаем файлы PDF') + ' · попытка ' + (attempt + 1) + ' из 3…');
+      try {
+        const needsEngine = !window.pdfMake?.createPdf;
+        if (typeof DecompressionStream === 'function') {
+          const [engine, fonts] = await Promise.all([
+            needsEngine ? compressedScript('pdfmake.min.js', attempt) : null,
+            !pdfFontsLoaded ? compressedScript('vfs_fonts.js', attempt) : null
+          ]);
+          if (engine) await executeBlob(engine);
+          if (!window.pdfMake?.createPdf) throw new Error('Не удалось запустить модуль PDF.');
+          if (fonts) { await executeBlob(fonts); pdfFontsLoaded = true; }
+        } else {
+          if (needsEngine) await loadScript(PDF_VENDOR_BASE + 'pdfmake.min.js');
+          if (!pdfFontsLoaded) { await loadScript(PDF_VENDOR_BASE + 'vfs_fonts.js'); pdfFontsLoaded = true; }
+        }
+        if (!window.pdfMake?.createPdf || !pdfFontsLoaded) throw new Error('Модуль PDF недоступен.');
+        engineStatus('Файлы загружены. Формируем PDF с выбранным составом…');
+        return window.pdfMake;
+      } catch (error) {
+        if (attempt === 2) throw new Error('Не удалось загрузить файлы PDF после трёх попыток. Проверьте соединение и повторите скачивание.');
+        await new Promise(resolve => setTimeout(resolve, 800 * (attempt + 1)));
+      }
+    }
   })().catch(error => { pdfEnginePromise = null; throw error; });
   return pdfEnginePromise;
 }
@@ -252,7 +303,8 @@ async function createPdfDefinition(documentRoot = document, selection) {
 }
 
 async function exportProposalPdf(documentRoot = document, selection) {
-  const [pdfMake, definition] = await Promise.all([loadPdfEngine(), createPdfDefinition(documentRoot, selection)]);
+  const pdfMake = await loadPdfEngine();
+  const definition = await createPdfDefinition(documentRoot, typeof selection === 'function' ? selection() : selection);
   const blob = await new Promise((resolve, reject) => {
     const timer = setTimeout(() => reject(new Error('Подготовка PDF заняла слишком много времени. Повторите скачивание.')), 60000);
     try { pdfMake.createPdf(definition).getBlob(result => { clearTimeout(timer); resolve(result); }); }

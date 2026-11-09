@@ -214,7 +214,7 @@ if (typeof document !== 'undefined') {
     pdfDownload.hidden = true;
     try {
       if (!window.EdentalPdf?.exportProposalPdf) throw new Error('Модуль PDF ещё не загрузился. Обновите страницу и повторите.');
-      const result = await window.EdentalPdf.exportProposalPdf(document, { websiteSelection, identitySelection, websiteFeatures: pricing.website.features });
+      const result = await window.EdentalPdf.exportProposalPdf(document, () => ({ websiteSelection, identitySelection, websiteFeatures: pricing.website.features }));
       if (pdfObjectUrl) URL.revokeObjectURL(pdfObjectUrl);
       pdfObjectUrl = result.url;
       pdfDownload.href = result.url;
