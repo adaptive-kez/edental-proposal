@@ -1,0 +1,8 @@
+pdfmake 0.2.23
+https://github.com/bpampuch/pdfmake/releases/tag/0.2.23
+Official distribution: https://registry.npmjs.org/pdfmake/-/pdfmake-0.2.23.tgz
+Archive SHA-512: A/IksoKb/ikOZH1edSDJ/2zBbqJKDghD4+fXn3rT7quvCJDlsZMs3NmIB3eajLMMFU9Bd3bZPVvlUMXhvFI+bQ==
+Library license: MIT (LICENSE).
+The vfs_fonts.js distribution contains Roboto Version 3.014 (2025).
+Roboto license: SIL Open Font License 1.1 (Roboto-LICENSE.txt).
+Font copyright: 2011 The Roboto Project Authors.

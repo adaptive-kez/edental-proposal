@@ -185,7 +185,52 @@ if (typeof document !== 'undefined') {
     inputs('identity').forEach(input => { input.checked = true; });
     update();
   });
-  document.querySelector('#print-proposal').addEventListener('click', () => window.print());
+  const pdfButton = document.querySelector('#print-proposal');
+  const pdfStatus = document.createElement('p');
+  pdfStatus.id = 'pdf-export-status';
+  pdfStatus.className = 'project-note pdf-export-status';
+  pdfStatus.setAttribute('role', 'status');
+  pdfStatus.hidden = true;
+  const pdfDownload = document.createElement('a');
+  pdfDownload.id = 'download-proposal-pdf';
+  pdfDownload.className = 'schedule-link';
+  pdfDownload.textContent = 'Скачать готовый PDF';
+  pdfDownload.hidden = true;
+  const nativePrint = document.createElement('button');
+  nativePrint.type = 'button';
+  nativePrint.id = 'native-print-proposal';
+  nativePrint.textContent = 'Печать в браузере';
+  nativePrint.addEventListener('click', () => window.print());
+  pdfButton.textContent = 'Скачать PDF';
+  pdfButton.after(nativePrint);
+  document.querySelector('.total-actions').after(pdfStatus, pdfDownload);
+  let pdfObjectUrl;
+  pdfButton.addEventListener('click', async () => {
+    pdfButton.disabled = true;
+    pdfButton.setAttribute('aria-busy', 'true');
+    pdfButton.textContent = 'Подготавливаем PDF…';
+    pdfStatus.hidden = false;
+    pdfStatus.textContent = 'Собираем PDF с выбранными пакетами, материалами и полной детализацией работ.';
+    pdfDownload.hidden = true;
+    try {
+      if (!window.EdentalPdf?.exportProposalPdf) throw new Error('Модуль PDF ещё не загрузился. Обновите страницу и повторите.');
+      const result = await window.EdentalPdf.exportProposalPdf(document, { websiteSelection, identitySelection, websiteFeatures: pricing.website.features });
+      if (pdfObjectUrl) URL.revokeObjectURL(pdfObjectUrl);
+      pdfObjectUrl = result.url;
+      pdfDownload.href = result.url;
+      pdfDownload.download = result.filename;
+      pdfDownload.hidden = false;
+      pdfDownload.click();
+      pdfStatus.textContent = 'PDF готов. Если скачивание не началось автоматически, нажмите «Скачать готовый PDF».';
+    } catch (error) {
+      pdfStatus.textContent = 'Не удалось подготовить PDF. ' + (error?.message || 'Повторите скачивание.') + ' Печать также доступна отдельной кнопкой в обычном браузере.';
+    } finally {
+      pdfButton.disabled = false;
+      pdfButton.removeAttribute('aria-busy');
+      pdfButton.textContent = 'Скачать PDF';
+    }
+  });
+  window.addEventListener('pagehide', () => { if (pdfObjectUrl) URL.revokeObjectURL(pdfObjectUrl); });
   const fullWorkGroups = [...document.querySelectorAll('.work-detail-group')];
   const fullWorkToggle = document.querySelector('#toggle-work-details');
   const syncWorkToggle = () => {
@@ -218,16 +263,6 @@ if (typeof document !== 'undefined') {
   update();
   window.addEventListener('scroll', updateStrip, { passive: true });
   window.addEventListener('resize', updateStrip);
-  let printDetails = [];
-  window.addEventListener('beforeprint', () => {
-    printDetails = [...document.querySelectorAll('.website-stage-detail, .work-detail-group')].map(element => ({ element, open: element.open }));
-    printDetails.forEach(({ element }) => { element.open = true; });
-  });
-  window.addEventListener('afterprint', () => {
-    printDetails.forEach(({ element, open }) => { element.open = open; });
-    printDetails = [];
-    syncWorkToggle();
-  });
   updateStrip();
 }
 
