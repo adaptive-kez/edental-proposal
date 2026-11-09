@@ -98,11 +98,15 @@ main{max-width:1680px;padding:0 32px 32px}
 @media(max-width:900px){main{padding:0 18px 24px}.hero{gap:16px}h1{font-size:29px}.hero-total strong{font-size:20px}.chart-content{--label-width:340px;min-width:1060px}.group .left span{font-size:9px}.chart-intro{padding:13px 15px}.chart-foot{font-size:9px}}
 @media(max-width:600px){main{padding:0 14px 24px}.appbar{min-height:62px;gap:12px}.brand{font-size:20px}.back-link{font-size:10px;padding:7px 10px}.hero{padding:22px 0;display:block}h1{font-size:29px}.subtitle{font-size:12px;margin-top:8px}.plan-note{font-size:10px}.hero-total{text-align:left;margin-top:17px;gap:4px}.hero-total strong{font-size:22px}.chart-content{--label-width:240px;min-width:950px}.gridrow .left{padding:9px 12px;gap:5px}.phase .left{padding:0}.phase-main{padding:12px 12px 10px}.phase-main>strong{font-size:11px}.phase-price{font-size:12px;line-height:1.25}.phase-dates{font-size:9px}.payment-item{padding:5px 6px}.payment-item span{font-size:8px}.payment-item b{font-size:10px}.substeps{padding-left:20px;padding-right:12px}.substeps li{font-size:10px;line-height:1.5}.phase-parallel{padding-left:36px;padding-right:12px;font-size:9px}.website-part .phase-main{padding-left:22px}.website-part .substeps{padding-left:30px}.website-part .phase-parallel{padding-left:46px}.group .left{padding:8px 12px;gap:4px;align-items:flex-start;justify-content:center;flex-direction:column}.group .left strong{font-size:10px}.group .left span{font-size:8px}.head .left{padding-left:12px;font-size:9px}.website-parent .left strong{font-size:11px}.website-parent .left>b{font-size:11px}.website-parent .left>span{font-size:9px}.chart-intro{display:block;font-size:11px}.chart-intro span{display:block;font-size:10px;margin-top:4px}.chart-foot{display:block;font-size:9px;line-height:1.5}.chart-foot p+p{margin-top:5px}}
 @media print{main{padding:0}.appbar{min-height:50px}.back-link{display:none}.hero{padding:18px 0}.chart-content{min-width:1000px}.scroll{overflow:visible}.chart-section{overflow:visible}.hero-total strong{font-size:20px}.chart-foot{color:#536053}}
+/* The three scales change only the view, never the project schedule. */
+.chart-section{overflow:visible}.chart-tools{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px;background:#fff;border-top:1px solid var(--line);position:sticky;top:0;z-index:10}.zoom-controls{display:inline-flex;gap:3px;padding:3px;border:1px solid #dce4d8;border-radius:8px;background:#eef2ea}.zoom-controls button{border:1px solid transparent;border-radius:5px;background:transparent;padding:6px 12px;cursor:pointer;font-size:11px;color:#63765f;line-height:1.3}.zoom-controls button[aria-pressed=true]{background:#fff;border-color:#d7dfd1;color:#285f4d;box-shadow:0 1px 3px #24463212}.zoom-controls button:hover{background:#f8faf5}.calendar-legend{display:inline-flex;align-items:center;gap:7px;font-size:10px;color:#71806a;white-space:nowrap}.calendar-legend>i{width:13px;height:13px;background:#e5eae3;border:1px solid #d4ddd0;border-radius:2px}.scroll{max-height:70vh;min-height:280px;overscroll-behavior:contain;border-radius:0 0 12px 12px;scrollbar-gutter:stable;scrollbar-width:auto;scrollbar-color:#aebfac #edf2e9}.chart-content{min-width:0}.head{position:sticky;top:0;z-index:8;height:78px;min-height:78px;box-shadow:0 1px 0 #d7e0d3}.head .left{z-index:9;background:#f0f4ec}.gridrow .left{position:sticky;left:0}.axis{position:relative;background:#f7f9f3}.months{position:relative;z-index:1;height:35px}.months>div{padding:9px 4px;text-align:left}.scale-row{position:relative;z-index:1;height:43px}.scale-row>span{position:absolute;top:0;bottom:0;border-left:1px solid #dfe7d9;overflow:hidden;white-space:nowrap}.week-scale>span{padding:11px 8px;font-size:10px;color:#62745d}.day-scale>span{padding:5px 0;text-align:center}.calendar-day b{display:block;font-size:10px;font-weight:500;line-height:1.3;color:#4c634a}.calendar-day small{display:block;margin-top:3px;font-size:9px;color:#85947c}.calendar-day.off{background:#e5eae3;color:#87917f}.calendar-day.off b,.calendar-day.off small{color:#8a9583}.offday-band{position:absolute;top:0;bottom:0;z-index:0;background:#e5eae3b8;pointer-events:none}.track{isolation:auto}.weekline{z-index:1;border-color:#dce5d5}.dayline{position:absolute;top:0;bottom:0;border-left:1px solid #edf1e9;pointer-events:none;z-index:1;display:none}.chart-content[data-zoom=days] .dayline{display:block}.bar-break{position:absolute;top:0;bottom:0;background:#edf2e8;opacity:.94;pointer-events:none}.chart-content[data-zoom=overview] .head{height:44px;min-height:44px}.chart-content[data-zoom=overview] .months{height:44px}.chart-content[data-zoom=overview] .months>div{font-size:9px;padding:13px 1px}.chart-content[data-zoom=overview] .weekline{display:none}.chart-content[data-zoom=overview] .bar-break{opacity:.8}
+@media(max-width:600px){.chart-tools{padding:9px 10px;gap:8px;flex-wrap:wrap}.zoom-controls button{font-size:10px;padding:6px 9px}.calendar-legend{font-size:9px;gap:5px}.calendar-legend>i{height:10px;width:10px}.scroll{max-height:68vh;min-height:270px}.chart-content{min-width:0}.week-scale>span{font-size:10px}.head .left{font-size:9px}}
+@media print{.chart-tools{display:none}.scroll{max-height:none;overflow:visible;min-height:0}.head{position:relative}.chart-content{min-width:1000px!important;width:1000px!important}.chart-content .day-scale,.chart-content .week-scale{display:none}}
 </style></head>
 <body><main>
 <header class="appbar"><div class="brand">Aff<span>Arts</span> × Эденталь</div><a class="back-link" href="./#website">← Коммерческое предложение</a></header>
 <section class="hero"><div><h1>Этапы и оплаты</h1><p class="subtitle" id="project-dates"></p><p class="plan-note" id="plan-caption">План по верхней границе сроков КП</p></div><div class="hero-total"><span>Весь выбранный состав</span><strong id="project-total"></strong></div></section>
-<section class="chart-section" aria-label="График этапов проекта"><div class="chart-intro"><b>Последовательность работ</b><span><i class="advance-key">◆</i> 50% до начала &nbsp; <i class="final-key">●</i> 50% после завершения</span></div><div id="gantt" class="scroll" tabindex="0" aria-label="График, горизонтальная прокрутка"></div></section>
+<section class="chart-section" aria-label="График этапов проекта"><div class="chart-intro"><b>Последовательность работ</b><span><i class="advance-key">◆</i> 50% до начала &nbsp; <i class="final-key">●</i> 50% после завершения</span></div><div class="chart-tools"><div class="zoom-controls" role="group" aria-label="Масштаб графика"><button type="button" data-zoom="overview" aria-pressed="false">Весь проект</button><button type="button" data-zoom="weeks" aria-pressed="true">Недели</button><button type="button" data-zoom="days" aria-pressed="false">Дни</button></div><span class="calendar-legend"><i></i>Выходные и праздники</span></div><div id="gantt" class="scroll" tabindex="0" aria-label="График, вертикальная и горизонтальная прокрутка"></div></section>
 <div class="chart-foot"><p><span class="legend-dot identity"></span>Айдентика &nbsp; <span class="legend-dot website"></span>Сайт</p><p>Сайт начинается параллельно с брендбуком.</p></div>
 <noscript><p>Для отображения графика включите JavaScript.</p></noscript>
 </main><script>(function(root,factory){
@@ -618,7 +622,9 @@ return {normalizeQuantity,websiteTotal,defaultIdentityQuantities,identityTotal};
       const maxCents = stage.number === 1 ? pricing.website.baseMaxCents + website.launchCents : items.reduce((sum, item) => sum + item.maxCents, 0);
       const duration = (state.scenario === 'min' ? stage.minWeeks : stage.maxWeeks) * 5;
       const id = 'website-' + stage.id;
-      add(id, stage.number + '. ' + stage.name, 'website', [previous], duration, minCents, maxCents);
+      const available = pricing.website.features.filter(item => item.stage === stage.optionStage);
+      const partial = stage.number > 1 && website.items.filter(item => item.stage === stage.optionStage).length < available.length;
+      add(id, stage.number + '. ' + stage.name + (partial ? ' (выбранный состав)' : ''), 'website', [previous], duration, minCents, maxCents);
       previous = id;
     }
     const project = {
@@ -660,6 +666,60 @@ return {normalizeQuantity,websiteTotal,defaultIdentityQuantities,identityTotal};
   return { normalizeState, fromSearch, calculate, calendar, previousWorkday, shift, splitWebsitePrice, splitPayments };
 });
 
+(function (root, factory) {
+  if (typeof module === 'object' && module.exports) module.exports = factory();
+  else root.EdentalGanttView = factory();
+})(typeof window === 'object' ? window : globalThis, function () {
+  'use strict';
+  const DAY = 86400000;
+  const shift = (date, count) => new Date(Date.parse(date + 'T12:00:00Z') + count * DAY).toISOString().slice(0, 10);
+  const index = (start, date) => Math.round((Date.parse(date + 'T12:00:00Z') - Date.parse(start + 'T12:00:00Z')) / DAY);
+  function axis(projectStart, finish, calendar) {
+    const weekday = new Date(projectStart + 'T12:00:00Z').getUTCDay();
+    const start = shift(projectStart, -((weekday + 6) % 7));
+    const end = new Date(Date.UTC(Number(finish.slice(0, 4)), Number(finish.slice(5, 7)), 0, 12)).toISOString().slice(0, 10);
+    const count = index(start, end) + 1;
+    const dates = Array.from({ length: count }, (_, offset) => {
+      const date = shift(start, offset);
+      return { date, index: offset, weekday: new Date(date + 'T12:00:00Z').getUTCDay(), working: calendar.isWorkday(date) };
+    });
+    const months = [], weeks = [], off = [];
+    for (const day of dates) {
+      const last = months.at(-1);
+      if (!last || last.key !== day.date.slice(0, 7)) months.push({ key: day.date.slice(0, 7), date: day.date, index: day.index, length: 1 });
+      else last.length++;
+      if (day.weekday === 1) weeks.push({ date: day.date, index: day.index, length: Math.min(7, count - day.index) });
+      if (!day.working) {
+        const run = off.at(-1);
+        if (run && run.index + run.length === day.index) { run.length++; run.end = day.date; }
+        else off.push({ date: day.date, end: day.date, index: day.index, length: 1 });
+      }
+    }
+    return { start, end, count, dates, months, weeks, off };
+  }
+  function dimensions(mode, count, viewport, labels) {
+    const normalized = ['overview', 'weeks', 'days'].includes(mode) ? mode : 'weeks';
+    const dayWidth = normalized === 'overview' ? Math.max(1, viewport - labels) / count : normalized === 'weeks' ? 18 : 42;
+    return { mode: normalized, dayWidth, trackWidth: dayWidth * count, contentWidth: labels + dayWidth * count };
+  }
+  function scrollForAnchor(day, dayWidth, maximum) {
+    return Math.max(0, Math.min(maximum, day * dayWidth));
+  }
+  function barBreaks(start, end, calendar) {
+    const total = index(start, end) + 1;
+    const runs = [];
+    for (let offset = 0; offset < total; offset++) {
+      const date = shift(start, offset);
+      if (calendar.isWorkday(date)) continue;
+      const last = runs.at(-1);
+      if (last && last.index + last.length === offset) last.length++;
+      else runs.push({ index: offset, length: 1, date });
+    }
+    return runs.map(run => ({ ...run, left: run.index * 100 / total, width: run.length * 100 / total }));
+  }
+  return { axis, dimensions, scrollForAnchor, barBreaks, index };
+});
+
 (function () {
   'use strict';
   const planner = createEdentalPlanner(GanttEngine, EDENTAL_PRICING, EDENTAL_MATH, EDENTAL_CALENDAR, EDENTAL_STAGE_SPLITS);
@@ -676,46 +736,41 @@ return {normalizeQuantity,websiteTotal,defaultIdentityQuantities,identityTotal};
     document.getElementById('project-dates').textContent = interval(plan.start, plan.finish);
     document.getElementById('plan-caption').textContent = (plan.state.scenario === 'min' ? 'План по нижней границе сроков КП' : 'План по верхней границе сроков КП') + '. Плановая разбивка внутри сроков этапов.';
     document.getElementById('project-total').textContent = money(plan.total.minCents, plan.total.maxCents);
-    const start = plan.start;
-    const end = new Date(Date.UTC(Number(plan.finish.slice(0, 4)), Number(plan.finish.slice(5, 7)), 0, 12)).toISOString().slice(0, 10);
-    const days = Math.round((Date.parse(end + 'T12:00:00Z') - Date.parse(start + 'T12:00:00Z')) / 86400000) + 1;
-    const dayIndex = value => Math.round((Date.parse(value + 'T12:00:00Z') - Date.parse(start + 'T12:00:00Z')) / 86400000);
+    const axis = EdentalGanttView.axis(plan.start, plan.finish, planner.calendar);
+    const days = axis.count;
+    const dayIndex = value => EdentalGanttView.index(axis.start, value);
     const percent = value => dayIndex(value) * 100 / days;
-    const months = [], weeks = [];
-    let month = '';
-    for (let index = 0; index < days; index++) {
-      const current = planner.shift(start, index), key = current.slice(0, 7);
-      if (key !== month) { months.push({ date: current, length: 1 }); month = key; }
-      else months[months.length - 1].length++;
-      if (new Date(current + 'T12:00:00Z').getUTCDay() === 1) weeks.push({ date: current, index });
-    }
     const monthNames = ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
-    const monthLabel = value => monthNames[Number(value.slice(5, 7)) - 1] + ' ' + value.slice(2, 4);
-    const weekLines = weeks.map(item => '<i class="weekline" style="left:' + item.index * 100 / days + '%"></i>').join('');
-    const header = '<div class="gridrow head"><div class="left"><b>Этапы, состав и платежи</b></div><div class="axis"><div class="months">' + months.map(item => '<div style="width:' + item.length * 100 / days + '%">' + monthLabel(item.date) + '</div>').join('') + '</div><div class="weeks">' + weeks.map(item => '<span style="left:' + item.index * 100 / days + '%">' + item.date.slice(8, 10) + '</span>').join('') + '</div></div></div>';
+    const weekdays = ['вс','пн','вт','ср','чт','пт','сб'];
+    const weekLines = axis.weeks.map(item => '<i class="weekline" style="left:' + item.index * 100 / days + '%"></i>').join('');
+    const offBands = axis.off.map(item => '<i class="offday-band" style="left:' + item.index * 100 / days + '%;width:' + item.length * 100 / days + '%" aria-hidden="true"></i>').join('');
+    const dayLines = axis.dates.map(item => '<i class="dayline" style="left:' + item.index * 100 / days + '%"></i>').join('');
+    const calendarGrid = offBands + dayLines + weekLines;
+    const header = '<div class="gridrow head"><div class="left"><b>Этапы, состав и платежи</b></div><div class="axis" id="calendar-axis"></div></div>';
     const rows = [], positions = new Map();
     function bar(item, color, summary = false) {
       const left = percent(item.start), width = (dayIndex(item.end) - dayIndex(item.start) + 1) * 100 / days;
       positions.set(item.id, { id: item.id, x1: left, x2: left + width });
-      return '<div class="bar' + (summary ? ' summary' : '') + '" style="left:' + left + '%;width:' + width + '%;background:' + color + '" role="img" aria-label="' + escape(item.title + ': ' + interval(item.start, item.end)) + '"></div>';
+      const breaks = summary ? '' : EdentalGanttView.barBreaks(item.start, item.end, planner.calendar).map(gap => '<i class="bar-break" style="left:' + gap.left + '%;width:' + gap.width + '%" aria-hidden="true"></i>').join('');
+      return '<div class="bar' + (summary ? ' summary' : '') + '" style="left:' + left + '%;width:' + width + '%;background:' + color + '" role="img" aria-label="' + escape(item.title + ': ' + interval(item.start, item.end)) + '">' + breaks + '</div>';
     }
     function payableRow(unit, color, nested = false) {
       const children = '<ol class="substeps">' + unit.substeps.map(title => '<li>' + escape(title) + '</li>').join('') + '</ol>';
       const parallel = unit.stage === 'website' && unit.kind === 'development' ? '<p class="phase-parallel">Управление и согласования — на всём этапе</p>' : '';
       const payments = unit.payments.map(payment => '<div class="payment-item ' + payment.type + '"><span><i aria-hidden="true">' + (payment.type === 'advance' ? '◆' : '●') + '</i> ' + (payment.type === 'advance' ? '50% до начала' : '50% после завершения') + ' · ' + date(payment.date) + '</span><b>' + money(payment.minCents, payment.maxCents) + '</b></div>').join('');
       const markers = unit.payments.map(payment => '<span class="payment-marker ' + payment.type + '" style="left:' + (percent(payment.date) + 50 / days) + '%" role="img" aria-label="' + escape((payment.type === 'advance' ? 'Аванс 50%: ' : 'Оплата 50% после завершения: ') + date(payment.date) + ', ' + money(payment.minCents, payment.maxCents)) + '"></span>').join('');
-      return '<div class="gridrow phase payable' + (nested ? ' website-part' : '') + '" data-id="' + escape(unit.id) + '"><div class="left"><div class="phase-main"><strong>' + escape(unit.title) + '</strong><b class="phase-price">' + money(unit.minCents, unit.maxCents) + '</b><div class="phase-dates">' + interval(unit.start, unit.end) + '</div><div class="unit-payments">' + payments + '</div></div>' + children + parallel + '</div><div class="track">' + weekLines + bar(unit, color) + markers + '</div></div>';
+      return '<div class="gridrow phase payable' + (nested ? ' website-part' : '') + '" data-id="' + escape(unit.id) + '"><div class="left"><div class="phase-main"><strong>' + escape(unit.title) + '</strong><b class="phase-price">' + money(unit.minCents, unit.maxCents) + '</b><div class="phase-dates">' + interval(unit.start, unit.end) + '</div><div class="unit-payments">' + payments + '</div></div>' + children + parallel + '</div><div class="track">' + calendarGrid + bar(unit, color) + markers + '</div></div>';
     }
     for (const group of plan.project.stages) {
       const tasks = plan.phases.filter(task => task.stage === group.id);
       if (!tasks.length) continue;
       const min = tasks.reduce((sum, task) => sum + task.minCents, 0), max = tasks.reduce((sum, task) => sum + task.maxCents, 0);
-      rows.push('<div class="gridrow group"><div class="left"><strong>' + escape(group.label) + '</strong><span>' + money(min, max) + '</span></div><div class="track"></div></div>');
+      rows.push('<div class="gridrow group"><div class="left"><strong>' + escape(group.label) + '</strong><span>' + money(min, max) + '</span></div><div class="track">' + offBands + '</div></div>');
       for (const task of tasks) {
         const units = plan.paymentUnits.filter(unit => unit.phaseId === task.id);
         if (task.stage === 'identity') rows.push(payableRow(units[0], group.color));
         else {
-          rows.push('<div class="gridrow website-parent" data-id="' + escape(task.id) + '"><div class="left"><strong>' + escape(task.title) + '</strong><b>' + money(task.minCents, task.maxCents) + '</b><span>' + interval(task.start, task.end) + '</span></div><div class="track">' + weekLines + bar(task, group.color, true) + '</div></div>');
+          rows.push('<div class="gridrow website-parent" data-id="' + escape(task.id) + '"><div class="left"><strong>' + escape(task.title) + '</strong><b>' + money(task.minCents, task.maxCents) + '</b><span>' + interval(task.start, task.end) + '</span></div><div class="track">' + calendarGrid + bar(task, group.color, true) + '</div></div>');
           rows.push(...units.map(unit => payableRow(unit, unit.kind === 'design' ? '#739180' : '#36765e', true)));
         }
       }
@@ -736,14 +791,43 @@ return {normalizeQuantity,websiteTotal,defaultIdentityQuantities,identityTotal};
       const labelWidth = content.querySelector('.left').getBoundingClientRect().width, trackWidth = content.querySelector('.axis').getBoundingClientRect().width;
       const x = value => labelWidth + value * trackWidth / 100;
       const y = position => { const bounds = content.querySelector('[data-id="' + position.id + '"] .bar').getBoundingClientRect(); return bounds.top - origin.top + bounds.height / 2; };
-      svg.setAttribute('width', content.scrollWidth); svg.setAttribute('height', content.scrollHeight);
+      svg.setAttribute('width', content.offsetWidth); svg.setAttribute('height', content.offsetHeight);
       svg.innerHTML = '<defs><marker id="arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto"><path d="M0 0 L5 2.5 L0 5" fill="#9aa99e"/></marker></defs>' + links.map(link => {
         const a = x(link.from.x2), b = x(link.to.x1), mid = a + Math.max(4, (b - a) / 2);
         return '<path d="M' + a + ',' + y(link.from) + ' H' + mid + ' V' + y(link.to) + ' H' + b + '" class="dependency" marker-end="url(#arrow)"/>';
       }).join('');
     }
-    drawLinks();
-    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(drawLinks).observe(content);
+    const axisMount = document.getElementById('calendar-axis');
+    const buttons = [...document.querySelectorAll('[data-zoom]')];
+    let mode = 'weeks', currentDimensions = null, anchorDay = 0;
+    function calendarHeader(dayWidth) {
+      const months = '<div class="months">' + axis.months.map(item => {
+        const pixels = item.length * dayWidth, short = monthNames[Number(item.date.slice(5, 7)) - 1];
+        const label = pixels >= 45 ? short + ' ' + item.date.slice(2, 4) : pixels >= 25 ? short : pixels >= 12 ? item.date.slice(5, 7) : '';
+        return '<div style="width:' + item.length * 100 / days + '%" title="' + escape(item.key) + '">' + label + '</div>';
+      }).join('') + '</div>';
+      if (mode === 'overview') return offBands + months;
+      if (mode === 'weeks') return offBands + months + '<div class="scale-row week-scale">' + axis.weeks.map(item => '<span style="left:' + item.index * 100 / days + '%;width:' + item.length * 100 / days + '%" title="Неделя с ' + date(item.date) + '">с ' + date(item.date).slice(0, 6) + item.date.slice(2, 4) + '</span>').join('') + '</div>';
+      return offBands + months + '<div class="scale-row day-scale">' + axis.dates.map(item => '<span data-date="' + item.date + '" data-working="' + item.working + '" class="calendar-day' + (item.working ? '' : ' off') + '" style="left:' + item.index * 100 / days + '%;width:' + 100 / days + '%" title="' + date(item.date) + ' — ' + (item.working ? 'рабочий день' : 'выходной или праздник') + '"><b>' + date(item.date).slice(0, 5) + '</b><small>' + weekdays[item.weekday] + '</small></span>').join('') + '</div>';
+    }
+    function applyZoom(next) {
+      if (currentDimensions && mode !== 'overview') anchorDay = mount.scrollLeft / currentDimensions.dayWidth;
+      const labelWidth = content.querySelector('.left').getBoundingClientRect().width;
+      currentDimensions = EdentalGanttView.dimensions(next, days, mount.clientWidth, labelWidth);
+      mode = currentDimensions.mode;
+      content.dataset.zoom = mode;
+      content.style.width = currentDimensions.contentWidth + 'px';
+      axisMount.innerHTML = calendarHeader(currentDimensions.dayWidth);
+      for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.zoom === mode));
+      drawLinks();
+      mount.scrollLeft = mode === 'overview' ? 0 : EdentalGanttView.scrollForAnchor(anchorDay, currentDimensions.dayWidth, Math.max(0, mount.scrollWidth - mount.clientWidth));
+    }
+    for (const button of buttons) button.addEventListener('click', () => applyZoom(button.dataset.zoom));
+    applyZoom('weeks');
+    if (typeof ResizeObserver !== 'undefined') {
+      new ResizeObserver(drawLinks).observe(content);
+      new ResizeObserver(() => applyZoom(mode)).observe(mount);
+    }
     document.documentElement.dataset.ganttReady = 'true';
   } catch (error) { mount.innerHTML = '<p class="error" role="alert">' + escape(error.message) + '</p>'; }
 })();

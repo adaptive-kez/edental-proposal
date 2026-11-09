@@ -77,12 +77,13 @@ function selectionText(websiteSelection, identitySelection, websitePremium, iden
     const fees = websiteSelection.fees.filter(item => item.stage === stage.optionStage);
     const min = stage.number === 1 ? pricing.website.baseCents : items.concat(fees).reduce((sum, item) => sum + item.priceCents, 0);
     const max = stage.number === 1 ? pricing.website.baseMaxCents : items.concat(fees).reduce((sum, item) => sum + item.maxCents, 0);
-    lines.push('', 'Этап ' + stage.number + '. ' + stage.name + ': ' + priceRange(min, max), 'Срок этапа: ' + weekRange(stage.minWeeks, stage.maxWeeks));
+    const partial = stage.number !== 1 && items.length < pricing.website.features.filter(item => item.stage === stage.optionStage).length;
+    lines.push('', 'Этап ' + stage.number + '. ' + stage.name + (partial ? ' (выбранный состав)' : '') + ': ' + priceRange(min, max), 'Срок этапа: ' + weekRange(stage.minWeeks, stage.maxWeeks));
     if (stage.number === 1) lines.push('• Страницы и шаблоны: ' + stage.pages.join('; '), '• ' + stage.deliverables.map(item => item.name).join('; '));
     else lines.push(...items.map(item => '• ' + item.name + ': ' + priceRange(item.priceCents, item.maxCents)), ...fees.map(item => '• ' + item.name + ': ' + priceRange(item.priceCents, item.maxCents)));
   }
-  if (pricing.website.launch) lines.push('• Запуск сайта: ' + (websiteSelection.launchCents ? rubles(websiteSelection.launchCents) : 'в составе выбранного пакета'), '• После завершения работ: гарантия ' + pricing.website.launch.warrantyMonths + ' месяцев; техническая и информационная поддержка — ' + pricing.website.launch.supportMonths + ' месяца.');
-  lines.push('', 'Айдентика: ' + rubles(identitySelection.totalCents), 'Пакет: ' + (identityPremium ? 'Расширенный' : 'Базовый'), '• Константы фирменного стиля: ' + rubles(identitySelection.coreCents));
+  if (pricing.website.launch) lines.push('• Запуск сайта: ' + (websiteSelection.launchCents ? rubles(websiteSelection.launchCents) : 'в составе базового этапа MVP'), '• После завершения работ: гарантия ' + pricing.website.launch.warrantyMonths + ' месяцев; техническая и информационная поддержка — ' + pricing.website.launch.supportMonths + ' месяца.');
+  lines.push('', 'Айдентика: ' + rubles(identitySelection.totalCents), 'Пакет: ' + (identityPremium ? 'Расширенный' : 'Базовый'), 'Ориентир для исходного состава пакета: ' + (identityPremium ? '4 рабочие недели.' : '3 рабочие недели.') + ' При изменении количества макетов плановые сроки требуют сверки.', '• Константы фирменного стиля: ' + rubles(identitySelection.coreCents));
   for (const [group, name] of [['carriers', 'Носители'], ['brandbook', 'Брендбук'], ['templates', 'Редактируемые шаблоны'], ['merch', 'Корпоративный мерч']]) {
     const rows = identitySelection.items.filter(item => item.group === group && item.quantity > 0);
     if (rows.length) lines.push(name + ':', ...rows.map(item => '• ' + item.name + ': ' + item.quantity + ' × ' + rubles(item.unitCents) + ' = ' + rubles(item.subtotalCents)));
@@ -90,7 +91,7 @@ function selectionText(websiteSelection, identitySelection, websitePremium, iden
   if (identitySelection.animationCents) lines.push('• Анимация логотипа (MP4 16:9 и 9:16, исходник After Effects): ' + rubles(identitySelection.animationCents));
   lines.push('', 'Итого: ' + priceRange(websiteSelection.totalCents + identitySelection.totalCents, websiteSelection.maxCents + identitySelection.totalCents));
   const quantities = Object.fromEntries(identitySelection.items.filter(item => item.group === 'carriers' || item.group === 'merch').map(item => [item.group + ':' + item.id, item.quantity]));
-  lines.push('', 'Старт работ: 16.11.2026. Айдентика начинается первой; сайт — параллельно работе над брендбуком.', 'Оплата айдентики: каждый этап — 50/50: 50% в день старта, до начала работ; 50% по завершении, в день окончания этапа. Первый платёж — 16.11.2026.', 'Оплата сайта: дизайн и разработка внутри каждого из трёх этапов оплачиваются отдельно по схеме 50/50: 50% в день старта подэтапа, до начала работ; 50% по завершении, в день его окончания.', 'График работ и оплат: https://adaptive-kez.github.io/edental-proposal/' + ganttUrl(websiteSelection, identityPremium, quantities, identitySelection.featureIds));
+  lines.push('', 'Сроки сайта указаны в рабочих неделях по 5 рабочих дней; календарные даты учитывают выходные и праздники и приведены в графике работ и оплат.', 'Старт работ: 16.11.2026. Айдентика начинается первой; сайт — параллельно работе над брендбуком.', 'Оплата айдентики: каждый этап — 50/50: 50% в день старта, до начала работ; 50% по завершении, в день окончания этапа. Первый платёж — 16.11.2026.', 'Оплата сайта: дизайн и разработка внутри каждого выбранного этапа оплачиваются отдельно по схеме 50/50: 50% в день старта подэтапа, до начала работ; 50% по завершении, в день его окончания.', 'График работ и оплат: https://adaptive-kez.github.io/edental-proposal/' + ganttUrl(websiteSelection, identityPremium, quantities, identitySelection.featureIds));
   return lines.join('\n');
 }
 
