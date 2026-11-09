@@ -105,7 +105,7 @@ main{max-width:1680px;padding:0 32px 32px}
 </style></head>
 <body><main>
 <header class="appbar"><div class="brand">Aff<span>Arts</span> × Эденталь</div><a class="back-link" href="./#website">← Коммерческое предложение</a></header>
-<section class="hero"><div><h1>Этапы и оплаты</h1><p class="subtitle" id="project-dates"></p><p class="plan-note" id="plan-caption">План по верхней границе сроков КП</p></div><div class="hero-total"><span>Весь выбранный состав</span><strong id="project-total"></strong></div></section>
+<section class="hero"><div><h1>Этапы и оплаты</h1><p class="subtitle" id="project-dates"></p><p class="plan-note" id="plan-caption">Предварительная дата старта. План по верхней границе сроков КП</p></div><div class="hero-total"><span>Весь выбранный состав</span><strong id="project-total"></strong></div></section>
 <section class="chart-section" aria-label="График этапов проекта"><div class="chart-intro"><b>Последовательность работ</b><span><i class="advance-key">◆</i> 50% до начала &nbsp; <i class="final-key">●</i> 50% после завершения</span></div><div class="chart-tools"><div class="zoom-controls" role="group" aria-label="Масштаб графика"><button type="button" data-zoom="overview" aria-pressed="false">Весь проект</button><button type="button" data-zoom="weeks" aria-pressed="true">Недели</button><button type="button" data-zoom="days" aria-pressed="false">Дни</button></div><span class="calendar-legend"><i></i>Выходные и праздники</span></div><div id="gantt" class="scroll" tabindex="0" aria-label="График, вертикальная и горизонтальная прокрутка"></div></section>
 <div class="chart-foot"><p><span class="legend-dot identity"></span>Айдентика &nbsp; <span class="legend-dot website"></span>Сайт</p><p>Сайт начинается параллельно с брендбуком.</p></div>
 <noscript><p>Для отображения графика включите JavaScript.</p></noscript>
@@ -734,7 +734,7 @@ return {normalizeQuantity,websiteTotal,defaultIdentityQuantities,identityTotal};
   try {
     const plan = planner.calculate(planner.fromSearch(location.search));
     document.getElementById('project-dates').textContent = interval(plan.start, plan.finish);
-    document.getElementById('plan-caption').textContent = (plan.state.scenario === 'min' ? 'План по нижней границе сроков КП' : 'План по верхней границе сроков КП') + '. Плановая разбивка внутри сроков этапов.';
+    document.getElementById('plan-caption').textContent = 'Предварительная дата старта — ' + date(plan.start) + '. ' + (plan.state.scenario === 'min' ? 'План по нижней границе сроков КП' : 'План по верхней границе сроков КП') + '. Плановая разбивка внутри сроков этапов.';
     document.getElementById('project-total').textContent = money(plan.total.minCents, plan.total.maxCents);
     const axis = EdentalGanttView.axis(plan.start, plan.finish, planner.calendar);
     const days = axis.count;
